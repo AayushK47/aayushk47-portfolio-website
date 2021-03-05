@@ -13,7 +13,7 @@ function Navbar() {
                         <li className={`${currentPath === '/' ? 'text-highlight' : ''} mx-2`}><Link to="/">Home</Link></li>
                         <li className={`${currentPath === '/about' ? 'text-highlight' : ''} mx-2`}><Link to="/about">About</Link></li>
                         <li className={`${currentPath === '/contact' ? 'text-highlight' : ''} mx-2`}><Link to="/contact">Contact</Link></li>
-                        <li className={`mx-2`}>Resume</li>
+                        {/* <li className={`mx-2`}>Resume</li> */}
                     </ul>
                 </nav>
             </div>
