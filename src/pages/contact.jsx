@@ -12,7 +12,7 @@ function ContactPage() {
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.5 }}
-                    className="text-4xl font-bold"
+                    className="text-3xl lg:text-4xl font-bold"
                 >
                     Let's Get In Touch
                 </motion.h1>
@@ -20,7 +20,7 @@ function ContactPage() {
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 1 }}
-                    className="w-1/2 text-center mt-10"
+                    className="w-4/5 lg:w-1/2 text-center mt-10"
                 >
                     As of now, I'm not looking for any new job opportunities, 
                     but my always inbox is open if you want to communicate 
@@ -40,7 +40,7 @@ function ContactPage() {
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 1.3 }}
-                    className="flex w-1/5 justify-evenly"
+                    className="flex w-4/5 lg:w-1/5 justify-evenly"
                 >
                     <a href="mailto:aayushkurup786@outlook.com">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#EAB41E" height="25" width="25">

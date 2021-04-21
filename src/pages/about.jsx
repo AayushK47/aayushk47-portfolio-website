@@ -6,20 +6,20 @@ import Navbar from '../components/Navbar';
 
 function AboutPage() {
     return (
-        <div className="h-screen bg-primary">
+        <div className="h-screen w-screen bg-primary">
             <Navbar />
-            <div className="flex">
-                <div className="px-28 py-28 text-info">
+            <div className="flex bg-primary">
+                <div className="p-10 lg:p-28 text-info">
                     <motion.h1
                         initial={{ y: 20, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         transition={{delay: 0.5}}
-                        className="text-4xl font-bold"
+                        className="text-2xl lg:text-4xl font-bold"
                     >
                         About
                     </motion.h1>
                     <div className="flex flex-row my-8 justify-between">
-                        <div className="w-3/5">
+                        <div className="w-5/6">
                             <motion.p
                                 initial={{ y: 20, opacity: 0 }}
                                 animate={{ y: 0, opacity: 1 }}
@@ -64,7 +64,7 @@ function AboutPage() {
                             initial={{ y: 20, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
                             transition={{delay: 2.5}}
-                            className="w-1/3"
+                            className="w-1/3 hidden lg:block"
                         >
                             <Doughnut
                                 options={{

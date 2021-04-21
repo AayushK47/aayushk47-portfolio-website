@@ -4,10 +4,9 @@ import { motion, AnimateSharedLayout } from 'framer-motion';
 
 function Navbar() {
     const currentPath = window.location.pathname;
-    console.log(currentPath);
     return (
         <AnimateSharedLayout>
-            <div className="bg-dark h-10 text-info">
+            <div className="bg-dark h-14 py-2 lg:h-10 lg:py-0 text-info">
                 <div className="flex flex-row p-2 font-semibold justify-between items-center">
                     <div>Aayush Kurup</div>
                     <nav className="">
