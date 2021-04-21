@@ -11,7 +11,7 @@ function Home() {
         <motion.h4
           initial={{y: 10, opacity: 0}}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 1 }}
+          transition={{ delay: 0.5 }}
           className="text-2xl font-semibold"
         >
           Hi there,
@@ -19,7 +19,7 @@ function Home() {
         <motion.h1
           initial={{ y:10, opacity: 0 }}
           animate={{ y:0, opacity: 1 }}
-          transition={{ delay: 2 }}
+          transition={{ delay: 1 }}
           className="text-5xl mb-2 font-bold"
         >
           My name is <span class="text-highlight">Aayush Kurup</span>
@@ -27,7 +27,7 @@ function Home() {
         <motion.h2
           initial={{ y:10, opacity: 0 }}
           animate={{ y:0, opacity: 1 }}
-          transition={{ delay: 3 }}
+          transition={{ delay: 1.5 }}
           className="text-3xl mb-16 font-semibold text-muted"
         >
           I am a Full-Stack Developer
@@ -35,7 +35,7 @@ function Home() {
         <motion.div
           initial={{ y:10, opacity: 0 }}
           animate={{ y:0, opacity: 1 }}
-          transition={{ delay: 4 }}
+          transition={{ delay: 1.8 }}
         >
           <button className="bg-highlight font-bold mr-5 w-1/5 border-2 border-highlight p-4 rounded text-light">Get In Touch</button>
           <button className="bg-transparent border-highlight border-2 text-highlight font-bold w-1/5 p-4 rounded hover:text-light hover:bg-highlight">Download Resume</button>

@@ -11,7 +11,7 @@ function ContactPage() {
                 <motion.h1
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 1 }}
+                    transition={{ delay: 0.5 }}
                     className="text-4xl font-bold"
                 >
                     Let's Get In Touch
@@ -19,7 +19,7 @@ function ContactPage() {
                 <motion.p
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 2 }}
+                    transition={{ delay: 1 }}
                     className="w-1/2 text-center mt-10"
                 >
                     As of now, I'm not looking for any new job opportunities, 
@@ -31,7 +31,7 @@ function ContactPage() {
                 <motion.h2
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 3 }}
+                    transition={{ delay: 1.3 }}
                     className="text-3xl my-5"
                 >
                         Here are my Socials
@@ -39,7 +39,7 @@ function ContactPage() {
                 <motion.div
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 3.3 }}
+                    transition={{ delay: 1.3 }}
                     className="flex w-1/5 justify-evenly"
                 >
                     <a href="mailto:aayushkurup786@outlook.com">
