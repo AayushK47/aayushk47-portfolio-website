@@ -1,20 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Doughnut } from 'react-chartjs-2';
 
 import Navbar from '../components/Navbar';
 
 function AboutPage() {
+    const [open, setOpen] = useState(false);
     return (
         <div className="h-screen w-screen bg-primary">
-            <Navbar />
-            <div className="flex bg-primary">
-                <div className="p-10 lg:p-28 text-info">
+            <Navbar open={open} setOpen={setOpen} />
+            <div className={`flex bg-primary ${open ? 'mt-32' : ''}`}>
+                <div className="p-10 text-info md:p-28">
                     <motion.h1
                         initial={{ y: 20, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         transition={{delay: 0.5}}
-                        className="text-2xl lg:text-4xl font-bold"
+                        className="text-2xl font-bold md:text-4xl"
                     >
                         About
                     </motion.h1>

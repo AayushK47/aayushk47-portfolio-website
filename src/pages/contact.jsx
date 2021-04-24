@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
 import Navbar from '../components/Navbar';
 
 function ContactPage() {
+    const [open, setOpen] = useState(false);
     return (
         <div className="overflow-hidden text-info h-screen bg-primary">
-            <Navbar />
-            <div className="flex flex-col items-center mt-36">
+            <Navbar open ={open} setOpen={setOpen}/>
+            <div className={`flex flex-col items-center mt-36 ${open ? 'mt-28' : ''}`}>
                 <motion.h1
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
