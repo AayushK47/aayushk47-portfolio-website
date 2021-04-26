@@ -16,6 +16,7 @@ function Navbar({ open, setOpen }) {
                         <motion.ul className="flex flex-row w-1/3 justify-between">
                             <motion.li animate className={`${currentPath === '/' ? 'text-highlight' : ''} mx-2`}><Link to="/">Home</Link></motion.li>
                             <motion.li animate className={`${currentPath === '/about' ? 'text-highlight' : ''} mx-2`}><Link to="/about">About</Link></motion.li>
+                            <motion.li animate className={`${currentPath === '/projects' ? 'text-highlight' : ''} mx-2`}><Link to="/projects">Projects</Link></motion.li>
                             <motion.li animate className={`${currentPath === '/contact' ? 'text-highlight' : ''} mx-2`}><Link to="/contact">Contact</Link></motion.li>
                             {/* <li className={`mx-2`}>Resume</li> */}
                         </motion.ul>
@@ -28,6 +29,7 @@ function Navbar({ open, setOpen }) {
                     <div className="pt-2 pb-3 space-y-1 mb-30 z-10">
                         <Link to="/" className={`${currentPath === '/' ? active : inactive}`} aria-current="page">Home</Link>
                         <Link to="/about" className={`${currentPath === '/about' ? active : inactive}`}>About</Link>
+                        <Link to="/projects" className={`${currentPath === '/projects' ? active : inactive}`}>Projects</Link>
                         <Link to="/contact" className={`${currentPath === '/contact' ? active : inactive}`}>Contact</Link>
                     </div>
                 </div>
