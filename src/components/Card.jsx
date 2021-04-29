@@ -1,14 +1,37 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 function Card() {
     return (
-        <div className="my-10">
+        <motion.div
+            initial={{
+                rotate: 10,
+                y: 200,
+                opacity: 0.3
+            }}
+
+            animate={{
+                rotate: 0,
+                y:0,
+                opacity: 1
+            }}
+
+            className="my-10"
+        >
             <div className="w-auto bg-dark px-5 py-3 font-light">
                 <h1 className="text-2xl font-semibold">Fireshell</h1>
-                <p className="mt-8 mb-5">
-                    A CLI for running firebase database and firestore queries on the shell. 
-                    Just install the package globally using npm or yarn, select the service (Realtime Database or Cloud Firestore), enter the path to config file and run your queries.
-                </p>
+                <div className="grid gap-4 grid-cols-4">
+                    <p className="mt-8 mb-5 col-span-4 lg:col-span-3">
+                        A CLI for running firebase database and firestore queries on the shell. 
+                        Just install the package globally using npm or yarn, select the service (Realtime Database or Cloud Firestore), enter the path to config file and run your queries.
+                    </p>
+                    <motion.div
+                        className="hidden lg:block h-full"
+                        whileHover={{ scale: 1.3 }}
+                    >
+                        <img src="https://drive.google.com/uc?id=1wOkHEmwoqC-Kdm8YqTqls6JAmRmzGD0f" alt=""/>
+                    </motion.div>
+                </div>
                 <p>
                     <span className="font-bold text-highlight">Technologies Used:</span> Node.js, Firebase API
                 </p>
@@ -25,7 +48,10 @@ function Card() {
                     </a>
                 </div>
             </div>
-        </div>
+        </motion.div>
+
+           
+        
     )
 }
 
