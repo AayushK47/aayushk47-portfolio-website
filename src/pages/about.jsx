@@ -80,7 +80,8 @@ function AboutPage() {
                                             display: true,
                                             text: "Top languages (Based on lines of code written)",
                                             fontColor: "#D4EAE9",
-                                        }
+                                            position: "bottom"
+                                        },
                                     }}
                                     data={{
                                         labels: [
