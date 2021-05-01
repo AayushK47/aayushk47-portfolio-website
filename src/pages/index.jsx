@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { Link } from 'gatsby';
 
 import Head from '../components/Head';
 import Navbar from '../components/Navbar';
@@ -9,7 +10,7 @@ function Home() {
   return (
     <>
       <Head />
-      <div className="overflow-hidden h-screen bg-primary">
+      <div className="overflow-hidden h-screen bg-primary font-mono">
         <Navbar open={open} setOpen={setOpen}/>
         <div className={`px-12 py-24 ${open ? 'mt-28': ''} text-info w-screen flex flex-col z-0 lg:px-24 md:p-48`}>
           <motion.h4
@@ -42,7 +43,7 @@ function Home() {
             transition={{ delay: 1.8 }}
             className="flex justify-between md:justify-start"
           >
-            <button className="bg-highlight p-2 font-bold rounded text-light w-2/5 md:mr-2 lg:w-1/5">Get In Touch</button>
+            <Link to="/contact" className="bg-highlight p-2 font-bold rounded text-center text-light w-2/5 md:mr-2 lg:w-1/5">Get In Touch</Link>
             <a href="/Aayush_Kurup_Resume.pdf" target="_blank" className="border-highlight border-2 p-2 rounded w-2/5 text-highlight font-bold hover:bg-highlight hover:text-light text-center lg:ml-2 lg:w-1/5">Download Resume</a>
           </motion.div>
         </div>

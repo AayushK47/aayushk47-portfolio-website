@@ -1,99 +1,56 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-<p align="center">
-  <a href="https://www.gatsbyjs.com">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby's hello-world starter
-</h1>
+<style>
+  @import url('http://fonts.cdnfonts.com/css/hanalei-fill');
+  .logo {
+    font-family: 'Hanalei Fill', sans-serif;
+  }
+</style>
+  <h1 style="font-size: 64px" align="center" class="logo"><span style="color: #D4EAE9">Aayush</span> <span style="color: #EAB41E">Kurup</span></h1>
+<h3 style="font-size: 32px" align="center">
+  My Portfolio Website
+</h3>
 
-Kick off your project with this hello-world boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+Welcome to my portfolio website built with [gatsby](https://www.gatsbyjs.com) and hosted on netlify. The design of this project is heavily inspired from [this](https://github.com/bchiang7/v4) project by [Brittany Chiang](https://github.com/bchiang7).
 
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.com/docs/gatsby-starters/)._
 
-## 🚀 Quick start
+**Live preview** :- [https://aayushk47.tech](https://aayushk47.tech)
 
-1.  **Create a Gatsby site.**
+# Run locally
 
-    Use the Gatsby CLI to create a new site, specifying the hello-world starter.
+**Note:-** You need to have node.js and git installed on your machine in order to run it locally.
 
-    ```shell
-    # create a new Gatsby site using the hello-world starter
-    gatsby new my-hello-world-starter https://github.com/gatsbyjs/gatsby-starter-hello-world
-    ```
+- Step 1:- Clone the project on your machine using the collowing command
 
-1.  **Start developing.**
+```
+git clone https://github.com/AayushK47/aayushk47-portfolio-website.git
+```
 
-    Navigate into your new site’s directory and start it up.
+- Step 2:- In the project directory, run the following command on your terminal to install all the dependencies.
 
-    ```shell
-    cd my-hello-world-starter/
-    gatsby develop
-    ```
+```
+yarn
+```
 
-1.  **Open the source code and start editing!**
+or, if you prefer npm
 
-    Your site is now running at `http://localhost:8000`!
+```
+npm install
+```
 
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.com/tutorial/part-five/#introducing-graphiql)._
+- Step 3:- Finally, run the following command to start the server on development mode.
 
-    Open the `my-hello-world-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+```
+yarn run develop
+```
 
-## 🧐 What's inside?
+or, for npm
 
-A quick look at the top-level files and directories you'll see in a Gatsby project.
+```
+npm run develop
+```
 
-    .
-    ├── node_modules
-    ├── src
-    ├── .gitignore
-    ├── .prettierrc
-    ├── gatsby-browser.js
-    ├── gatsby-config.js
-    ├── gatsby-node.js
-    ├── gatsby-ssr.js
-    ├── LICENSE
-    ├── package-lock.json
-    ├── package.json
-    └── README.md
+## Frameworks used
 
-1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
-
-2.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
-
-3.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
-
-4.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
-
-5.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.com/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
-
-6.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.com/docs/gatsby-config/) for more detail).
-
-7.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.com/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
-
-8.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.com/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
-
-9.  **`LICENSE`**: This Gatsby starter is licensed under the 0BSD license. This means that you can see this file as a placeholder and replace it with your own license.
-
-10. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
-
-11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
-
-12. **`README.md`**: A text file containing useful reference information about your project.
-
-## 🎓 Learning Gatsby
-
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.com/). Here are some places to start:
-
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.com/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
-
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.com/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
-
-## 💫 Deploy
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-hello-world)
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/gatsbyjs/gatsby-starter-hello-world)
-
-<!-- AUTO-GENERATED-CONTENT:END -->
+[<img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="30" />](#)
+[<img alt="Gatsby" src="https://www.chartjs.org/img/chartjs-logo.svg" width="30" />](#)
+[<img alt="Gatsby" src="https://tailwindcss.com/_next/static/media/tailwindcss-mark.cb8046c163f77190406dfbf4dec89848.svg" width="30" />](#)
+[<img alt="Gatsby" src="data:image/png;base64,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" width="30" />](#)

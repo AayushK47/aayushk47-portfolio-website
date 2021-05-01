@@ -9,7 +9,7 @@ function ContactPage() {
     return (
         <>
             <Head />
-            <div className="overflow-hidden text-info h-screen bg-primary">
+            <div className="overflow-hidden text-info h-screen bg-primary font-mono">
                 <Navbar open ={open} setOpen={setOpen}/>
                 <div className={`flex flex-col items-center mt-36 ${open ? 'mt-48' : ''}`}>
                     <motion.h1

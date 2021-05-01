@@ -10,7 +10,7 @@ function AboutPage() {
     return (
         <>
             <Head />
-            <div className="h-screen w-screen bg-primary">
+            <div className="h-screen w-screen bg-primary font-mono">
                 <Navbar open={open} setOpen={setOpen} />
                 <div className={`flex bg-primary ${open ? 'mt-44' : ''}`}>
                     <div className="p-10 text-info md:p-28">

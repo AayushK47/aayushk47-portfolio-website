@@ -28,6 +28,10 @@ function Card(props) {
                 opacity: 1
             }}
 
+            transition={{
+                delay: props.delay
+            }}
+
             className="my-10"
         >
             <div className="w-auto bg-dark px-5 py-3 font-light">

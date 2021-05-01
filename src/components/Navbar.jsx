@@ -11,14 +11,13 @@ function Navbar({ open, setOpen }) {
         <AnimateSharedLayout>
             <div className="bg-dark h-14 py-2 lg:h-10 lg:py-0 text-info">
                 <div className="flex flex-row p-2 font-semibold justify-between items-center">
-                    <div>Aayush Kurup</div>
+                    <Link to="/"><div className="logo">Aayush <span className="text-highlight">Kurup</span></div></Link>
                     <nav className="hidden md:block">
                         <motion.ul className="flex flex-row w-1/3 justify-between">
                             <motion.li animate className={`${currentPath === '/' ? 'text-highlight' : ''} mx-2`}><Link to="/">Home</Link></motion.li>
                             <motion.li animate className={`${currentPath === '/about' ? 'text-highlight' : ''} mx-2`}><Link to="/about">About</Link></motion.li>
                             <motion.li animate className={`${currentPath === '/projects' ? 'text-highlight' : ''} mx-2`}><Link to="/projects">Projects</Link></motion.li>
                             <motion.li animate className={`${currentPath === '/contact' ? 'text-highlight' : ''} mx-2`}><Link to="/contact">Contact</Link></motion.li>
-                            {/* <li className={`mx-2`}>Resume</li> */}
                         </motion.ul>
                     </nav>
                     <svg onClick={() => setOpen(!open)} className="block h-6 w-6 md:hidden cursor-pointer" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">

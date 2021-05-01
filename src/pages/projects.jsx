@@ -9,17 +9,17 @@ function Projects() {
     const data = useStaticQuery(graphql`
         query {
             allMarkdownRemark {
-            nodes {
-                id
-                frontmatter {
-                title
-                github
-                external
-                tech
-                image
+                nodes {
+                    id
+                    frontmatter {
+                    title
+                    github
+                    external
+                    tech
+                    image
+                    }
+                    rawMarkdownBody
                 }
-                rawMarkdownBody
-            }
             }
         }
     `);
@@ -27,7 +27,7 @@ function Projects() {
     return (
         <>
             <Head />
-            <div className="h-full w-full bg-primary">
+            <div className="h-full w-full bg-primary font-mono">
                 <Navbar open={open} setOpen={setOpen} />
                 <div className={`flex ${open ? 'mt-48' : ''}`}>
                     <div className={`${open ? 'my-32' : 'mt-20'} text-info mx-10`}>
@@ -42,6 +42,7 @@ function Projects() {
                                     external={e.frontmatter.external}
                                     tech={e.frontmatter.tech}
                                     img={e.frontmatter.image}
+                                    delay={i*0.3}
                                 />
                             })
                         }
