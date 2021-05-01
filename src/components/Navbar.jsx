@@ -2,8 +2,9 @@ import React from 'react';
 import { Link } from 'gatsby';
 import { motion, AnimateSharedLayout } from 'framer-motion';
 
-function Navbar({ open, setOpen }) {
-    const currentPath = window.location.pathname;
+function Navbar({ open, setOpen, location }) {
+    const currentPath = location.pathname;
+    console.log(currentPath);
     const active = "bg-gray-900 text-highlight font-bold block px-3 py-2 rounded-md text-base";
     const inactive = "text-info hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium";
 

@@ -5,7 +5,7 @@ import Head from '../components/Head';
 import Card from '../components/Card';
 import Navbar from '../components/Navbar';
 
-function Projects() {
+function Projects({ location }) {
     const data = useStaticQuery(graphql`
         query {
             allMarkdownRemark {
@@ -28,7 +28,7 @@ function Projects() {
         <>
             <Head />
             <div className="h-full w-full bg-primary font-mono">
-                <Navbar open={open} setOpen={setOpen} />
+                <Navbar open={open} setOpen={setOpen} location={location}/>
                 <div className={`flex ${open ? 'mt-48' : ''}`}>
                     <div className={`${open ? 'my-32' : 'mt-20'} text-info mx-10`}>
                         <h1 className="text-4xl font-bold">Projects</h1>

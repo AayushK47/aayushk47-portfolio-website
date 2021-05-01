@@ -5,13 +5,13 @@ import { Link } from 'gatsby';
 import Head from '../components/Head';
 import Navbar from '../components/Navbar';
 
-function Home() {
+function Home({ location }) {
   const [open, setOpen] = useState(false);
   return (
     <>
       <Head />
       <div className="overflow-hidden h-screen bg-primary font-mono">
-        <Navbar open={open} setOpen={setOpen}/>
+        <Navbar open={open} setOpen={setOpen} location={location}/>
         <div className={`px-12 py-24 ${open ? 'mt-28': ''} text-info w-screen flex flex-col z-0 lg:px-24 md:p-48`}>
           <motion.h4
             initial={{y: 10, opacity: 0}}

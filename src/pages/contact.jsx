@@ -4,13 +4,13 @@ import { motion } from 'framer-motion';
 import Navbar from '../components/Navbar';
 import Head from '../components/Head';
 
-function ContactPage() {
+function ContactPage({ location }) {
     const [open, setOpen] = useState(false);
     return (
         <>
             <Head />
             <div className="overflow-hidden text-info h-screen bg-primary font-mono">
-                <Navbar open ={open} setOpen={setOpen}/>
+                <Navbar open ={open} setOpen={setOpen} location={location}/>
                 <div className={`flex flex-col items-center mt-36 ${open ? 'mt-48' : ''}`}>
                     <motion.h1
                         initial={{ y: 20, opacity: 0 }}

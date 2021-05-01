@@ -5,13 +5,13 @@ import { Doughnut } from 'react-chartjs-2';
 import Navbar from '../components/Navbar';
 import Head from '../components/Head';
 
-function AboutPage() {
+function AboutPage({ location }) {
     const [open, setOpen] = useState(false);
     return (
         <>
             <Head />
             <div className="h-screen w-screen bg-primary font-mono">
-                <Navbar open={open} setOpen={setOpen} />
+                <Navbar open={open} setOpen={setOpen} location={location} />
                 <div className={`flex bg-primary ${open ? 'mt-44' : ''}`}>
                     <div className="p-10 text-info md:p-28">
                         <motion.h1
