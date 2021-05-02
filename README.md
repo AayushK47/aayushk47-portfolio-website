@@ -1,13 +1,13 @@
-<style>
-  @import url('http://fonts.cdnfonts.com/css/hanalei-fill');
-  .logo {
-    font-family: 'Hanalei Fill', sans-serif;
-  }
-</style>
-  <h1 style="font-size: 64px" align="center" class="logo"><span style="color: #D4EAE9">Aayush</span> <span style="color: #EAB41E">Kurup</span></h1>
+<img src="./media/AayushKurup.png"/>
 <h3 style="font-size: 32px" align="center">
   My Portfolio Website
 </h3>
+
+<div align="center">
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/6e898f43-fdea-4d5b-be53-5116d2c680c8/deploy-status)](https://app.netlify.com/sites/aayushk47/deploys)
+
+</div>
 
 Welcome to my portfolio website built with [gatsby](https://www.gatsbyjs.com) and hosted on netlify. The design of this project is heavily inspired from [this](https://github.com/bchiang7/v4) project by [Brittany Chiang](https://github.com/bchiang7).
 

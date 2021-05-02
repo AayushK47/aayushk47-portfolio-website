@@ -27,7 +27,7 @@ function ContactPage({ location }) {
                         className="w-4/5 lg:w-1/2 text-center mt-10"
                     >
                         As of now, I'm not looking for any new job opportunities, 
-                        but my always inbox is open if you want to communicate 
+                        but my inbox is always open if you want to communicate 
                         with me. Hit me up if you have some question, want a 
                         collaboration or just play a game of chess. I'll try to get 
                         back to you as soon as I can.
