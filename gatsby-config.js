@@ -16,6 +16,14 @@ module.exports = {
         path: `${__dirname}/content/projects`,
       },
     },
-    'gatsby-transformer-remark'
+    'gatsby-transformer-remark',
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /assets/
+        }
+      }
+    }
   ],
 }
