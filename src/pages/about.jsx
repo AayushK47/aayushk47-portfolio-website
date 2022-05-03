@@ -30,7 +30,7 @@ function AboutPage({ location }) {
                                     transition={{delay: 1}}
                                 >
                                     Hello, My name is Aayush Kurup. I am a Software Engineer from Bhopal, Madhya Pradesh, India. 
-                                    Currently, I am employed by Tata Consultancy Services as an Assistant Software Engineer - Trainee.
+                                    Currently, I am employed by Squareboat Solutions as Software Engineer.
                                 </motion.p>
                                 <br/>
                                 <motion.p
