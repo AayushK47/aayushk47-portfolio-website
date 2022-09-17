@@ -3,13 +3,11 @@ import { motion } from 'framer-motion';
 import { Doughnut } from 'react-chartjs-2';
 
 import Navbar from '../components/Navbar';
-import Head from '../components/Head';
 
 function AboutPage({ location }) {
     const [open, setOpen] = useState(false);
     return (
         <>
-            <Head />
             <div className="h-screen w-screen bg-primary font-mono">
                 <Navbar open={open} setOpen={setOpen} location={location} />
                 <div className={`flex bg-primary ${open ? 'mt-44' : ''}`}>
@@ -128,6 +126,14 @@ function AboutPage({ location }) {
                 </div>
             </div>
         </>
+    )
+}
+
+export function Head() {
+    return (
+        <title>
+            Aayush Kurup
+        </title>
     )
 }
 

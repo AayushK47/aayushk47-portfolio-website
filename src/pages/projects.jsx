@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 
-import Head from '../components/Head';
 import Card from '../components/Card';
 import Navbar from '../components/Navbar';
 
@@ -26,7 +25,6 @@ function Projects({ location }) {
     const [open, setOpen] = useState(false);
     return (
         <>
-            <Head />
             <div className="h-full w-full bg-primary font-mono">
                 <Navbar open={open} setOpen={setOpen} location={location}/>
                 <div className={`flex ${open ? 'mt-48' : ''}`}>
@@ -50,6 +48,14 @@ function Projects({ location }) {
                 </div>
             </div>
         </>
+    )
+}
+
+export function Head() {
+    return (
+        <title>
+            Aayush Kurup
+        </title>
     )
 }
 

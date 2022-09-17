@@ -3,14 +3,12 @@ import { motion } from "framer-motion";
 import { Link } from 'gatsby';
 
 import Illustration from '../../assets/programming.svg';
-import Head from '../components/Head';
 import Navbar from '../components/Navbar';
 
 function Home({ location }) {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <Head />
       <div className="overflow-hidden h-screen bg-primary font-mono">
         <Navbar open={open} setOpen={setOpen} location={location}/>
         <div className="flex">
@@ -60,6 +58,14 @@ function Home({ location }) {
         </div>
       </div>
     </>
+  )
+}
+
+export function Head() {
+  return (
+      <title>
+          Aayush Kurup
+      </title>
   )
 }
 

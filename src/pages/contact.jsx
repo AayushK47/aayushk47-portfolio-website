@@ -2,13 +2,11 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
 import Navbar from '../components/Navbar';
-import Head from '../components/Head';
 
 function ContactPage({ location }) {
     const [open, setOpen] = useState(false);
     return (
         <>
-            <Head />
             <div className="overflow-hidden text-info h-screen bg-primary font-mono">
                 <Navbar open ={open} setOpen={setOpen} location={location}/>
                 <div className={`flex flex-col items-center mt-36 ${open ? 'mt-48' : ''}`}>
@@ -89,6 +87,14 @@ function ContactPage({ location }) {
                 </div>
             </div>
         </>
+    )
+}
+
+export function Head() {
+    return (
+        <title>
+            Aayush Kurup
+        </title>
     )
 }
 
