@@ -7,9 +7,9 @@ function ContactPage({ location }) {
     const [open, setOpen] = useState(false);
     return (
         <>
-            <div className="overflow-hidden text-info h-screen bg-primary font-mono">
+            <div className="overflow-x-hidden text-info h-screen bg-primary font-mono">
                 <Navbar open ={open} setOpen={setOpen} location={location}/>
-                <div className={`flex flex-col items-center mt-36 ${open ? 'mt-48' : ''}`}>
+                <div className={`flex flex-col items-center mt-36 mb-48 ${open ? 'mt-60' : ''}`}>
                     <motion.h1
                         initial={{ y: 20, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}

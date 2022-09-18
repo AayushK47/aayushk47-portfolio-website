@@ -13,7 +13,7 @@ function Navbar({ open, setOpen, location }) {
             <div className="bg-dark h-14 py-2 lg:h-10 lg:py-0 text-info">
                 <div className="flex flex-row p-2 font-semibold justify-between items-center">
                     <Link to="/"><div className="logo">Aayush <span className="text-highlight">Kurup</span></div></Link>
-                    <nav className="hidden md:block">
+                    <nav className="hidden md:block z-50">
                         <motion.ul className="flex flex-row w-1/3 justify-between">
                             <motion.li animate className={`${currentPath === '/' ? 'text-highlight' : ''} mx-2`}><Link to="/">Home</Link></motion.li>
                             <motion.li animate className={`${currentPath === '/about' ? 'text-highlight' : ''} mx-2`}><Link to="/about">About</Link></motion.li>
@@ -31,7 +31,7 @@ function Navbar({ open, setOpen, location }) {
                         <Link to="/" className={`${currentPath === '/' ? active : inactive}`} aria-current="page">Home</Link>
                         <Link to="/about" className={`${currentPath === '/about' ? active : inactive}`}>About</Link>
                         <Link to="/projects" className={`${currentPath === '/projects' ? active : inactive}`}>Projects</Link>
-                        <Link to="https://blogs.aayushkurup.dev">Blogs</Link>
+                        <a href="https://blogs.aayushkurup.dev/" className={`${currentPath === '/blogs' ? active : inactive}`}>Blogs</a>
                         <Link to="/contact" className={`${currentPath === '/contact' ? active : inactive}`}>Contact</Link>
                     </div>
                 </div>

@@ -10,7 +10,7 @@ function AboutPage({ location }) {
         <>
             <div className="h-screen w-screen bg-primary font-mono">
                 <Navbar open={open} setOpen={setOpen} location={location} />
-                <div className={`flex bg-primary ${open ? 'mt-44' : ''}`}>
+                <div className={`flex bg-primary ${open ? 'mt-60' : ''}`}>
                     <div className="p-10 text-info md:p-28">
                         <motion.h1
                             initial={{ y: 20, opacity: 0 }}
