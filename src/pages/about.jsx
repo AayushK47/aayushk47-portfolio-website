@@ -28,7 +28,7 @@ function AboutPage({ location }) {
                                     transition={{ delay: 1 }}
                                 >
                                     Hello, My name is Aayush Kurup. I am a Software Engineer from Bhopal, Madhya Pradesh, India.
-                                    Currently, I am employed by Squareboat Solutions as Software Engineer.
+                                    Currently, I am employed by Orah as Software Engineer.
                                 </motion.p>
                                 <br />
                                 <motion.p
