@@ -6,7 +6,7 @@ import Illustration from '@assets/programming.svg'
 export default function Home() {
   return (
     <>
-      <div className='flex mt-24 overflow-hidden'>
+      <div className='flex mt-24 overflow-hidden p-10'>
         <div 
           className="flex flex-col px-12 py-24 w-1/2"
         >
@@ -61,7 +61,7 @@ export default function Home() {
           transition={{ delay: 2.2 }}
           className="2xl:pl-20 md:hidden lg:block"
         >
-          <Image src={Illustration} alt='' />
+          <Image src="/images/programming.svg" alt='' width="480" height="640"/>
         </motion.div>
       </div>
     </>
