@@ -13,9 +13,9 @@ const Navbar = () => {
         <div className="hidden md:flex space-x-4">
           <Link href="/" className={`${pathname == '/' ? 'text-highlight' : 'text-info'} font-bold`}>Home</Link>
           <Link href="/about" className={`${pathname == '/about' ? 'text-highlight' : 'text-info'} font-bold`}>About</Link>
-          <a href="#" className={`${pathname == '' ? 'text-highlight' : 'text-info'} font-bold`}>Projects</a>
-          <a href="#" className={`${pathname == '' ? 'text-highlight' : 'text-info'} font-bold`}>Blogs</a>
-          <a href="#" className={`${pathname == '' ? 'text-highlight' : 'text-info'} font-bold`}>Contact</a>
+          <a href="#" className={`${pathname == '' ? 'text-highlight' : 'text-info'} font-bold`}>Work</a>
+          <a href="https://blogs.aayushkurup.dev" target="_blank" className='font-bold'>Blogs</a>
+          <Link href="/contact" className={`${pathname == '/contact' ? 'text-highlight' : 'text-info'} font-bold`}>Contact</Link>
         </div>
       </div>
     </nav>
