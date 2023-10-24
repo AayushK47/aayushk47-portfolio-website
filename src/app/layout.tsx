@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 
 
-import Navbar from "@components/navbar"
+import Navbar from "@/components/navbar"
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-primary text-info">
+      <body className="bg-primary text-info font-mono">
         <Navbar />
         {children}
       </body>
