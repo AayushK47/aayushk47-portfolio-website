@@ -1,7 +1,6 @@
 "use client"
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import Illustration from '@assets/programming.svg'
 
 export default function Home() {
   return (
