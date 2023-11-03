@@ -1,5 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
+"use client"
 import Image from 'next/image'
+import { motion } from 'framer-motion'
 
 export default function About() {
     return (
@@ -7,23 +9,43 @@ export default function About() {
             <div className="flex overflow-hidden px-10 mt-16">
                 <div className="flex flex-col">
                     <div className="p-10">
-                        <h1
+                        <motion.h1
+                            initial={{ y: 20, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ delay: 0.5 }}
                             className="text-2xl font-bold md:text-4xl"
                         >
                             About
-                        </h1>
+                        </motion.h1>
                     </div>
                     <div className="flex justify-between px-10 h-full">
                         <div className='w-3/5'>
-                            <p>Hello, My name is Aayush Kurup. I am a Software Engineer from Bhopal, Madhya Pradesh, India.
-                                Currently, I am employed by <a href="https://www.saama.com/" className='text-highlight underline'>Saama</a>  as Software Engineer.</p> <br />
-                            <p>
+                            <motion.p
+                                initial={{ y: 20, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                transition={{ delay: 1 }}
+                            >
+                                Hello, My name is Aayush Kurup. I am a Software Engineer from Bhopal, Madhya Pradesh, India.
+                                Currently, I am employed by <a href="https://www.saama.com/" className='text-highlight underline'>Saama</a>  as Software Engineer.
+                            </motion.p>
+                            
+                            <br />
+                            
+                            <motion.p
+                                initial={{ y: 20, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                transition={{ delay: 1.5 }}
+                            >
                                 I love working on a variety of technologies including Web Development, Mobile App Development and
                                 Deep Learning. My goal is to build highly performant applications that solve real-world problems
                                 and provide users with an awesome experience.
-                            </p>
+                            </motion.p>
                             <br />
-                            <div>
+                            <motion.div
+                                initial={{ y: 20, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                transition={{ delay: 2 }}
+                            >
                                 <h3 className='text-xl font-semibold'>My Tech Stack</h3>
                                 <br />
                                 <div className="w-5/6">
@@ -79,18 +101,28 @@ export default function About() {
                                         <img className="p-1" src="https://img.shields.io/badge/VS%20Code-3EA6E9?style=for-the-badge&logo=visualstudiocode&logoColor=white" alt="" />
                                     </div>
                                 </div>
-                            </div>
+                            </motion.div>
                         </div>
-                        <div className='flex justify-center w-2/5'>
+                        <motion.div
+                            initial={{ y: 20, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ delay: 3 }} 
+                            className='flex justify-center w-2/5'
+                        >
                             <Image className="rounded-2xl" src="/images/me.png" alt="" width="300" height="300" />
-                        </div>
+                        </motion.div>
                     </div>
-                    <div className='mt-10 px-10 pb-10'>
+                    <motion.div
+                        className='mt-10 px-10 pb-10'
+                        initial={{ y: 20, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ delay: 2.5 }}
+                    >
                         <h3 className='text-xl font-semibold pb-4'>Certifications</h3>
                         <div>
                             <img src="/images/aws-ccp-badge.png" alt="AWS CCP Badge" />
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
         </>
