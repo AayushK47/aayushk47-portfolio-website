@@ -58,7 +58,7 @@ export default function Home() {
           initial={{ y: 10, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 2.2 }}
-          className="2xl:pl-20 md:hidden lg:block"
+          className="2xl:pl-20 hidden md:block"
         >
           <Image src="/images/programming.svg" alt='' width="480" height="640"/>
         </motion.div>
