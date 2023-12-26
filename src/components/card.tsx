@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 import { GithubRepo } from "@/interfaces/github"
-import Image from "next/image"
 import Icon from "./icons"
 
 interface CardProps {
