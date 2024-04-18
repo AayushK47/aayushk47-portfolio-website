@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
@@ -10,6 +10,19 @@ import { usePathname } from "next/navigation";
 function Navbar() {
     const pathname = usePathname();
     const [isOpen, setOpen] = useState<boolean>(false);
+    const [isLgScreen, setIsLgScreen] = useState<boolean>(false);
+
+    useEffect(() => {
+        const handleResize = () => {
+            const windowWidth = window.innerWidth;
+            setIsLgScreen(windowWidth < 1000);
+        };
+
+        window.addEventListener("resize", handleResize);
+        handleResize();
+
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
     const divVariants = {
         visible: {
@@ -31,6 +44,10 @@ function Navbar() {
         setOpen((val) => !val);
     }
 
+    function resetNavbar() {
+        setOpen(false);
+    }
+
     return (
         <>
             <nav className="bg-dark h-14 flex justify-between items-center px-3">
@@ -38,9 +55,47 @@ function Navbar() {
                     <span className="text-info">Aayush </span>
                     <span className="text-highlight">Kurup</span>
                 </div>
-                <div onClick={toggleNavbar}>
-                    {!isOpen ? <Hamburger /> : <CloseIcon />}
-                </div>
+                {isLgScreen ? (
+                    <div onClick={toggleNavbar}>
+                        {!isOpen ? <Hamburger /> : <CloseIcon />}
+                    </div>
+                ) : (
+                    <div className="flex space-x-4">
+                        <ul
+                            className={pathname === "/" ? "text-highlight" : ""}
+                        >
+                            <Link href="/">Home</Link>
+                        </ul>
+                        <ul
+                            className={
+                                pathname === "/about" ? "text-highlight" : ""
+                            }
+                        >
+                            <Link href="/about">About</Link>
+                        </ul>
+                        <ul
+                            className={
+                                pathname === "/work" ? "text-highlight" : ""
+                            }
+                        >
+                            <Link href="/work">Work</Link>
+                        </ul>
+                        <ul
+                            className={
+                                pathname === "/blogs" ? "text-highlight" : ""
+                            }
+                        >
+                            <Link href="/blogs">Blogs</Link>
+                        </ul>
+                        <ul
+                            className={
+                                pathname === "/contacts" ? "text-highlight" : ""
+                            }
+                        >
+                            <Link href="/contacts">Contacts</Link>
+                        </ul>
+                    </div>
+                )}
             </nav>
             <motion.div
                 variants={divVariants}
@@ -49,21 +104,31 @@ function Navbar() {
             >
                 <ul>
                     <li className={pathname === "/" ? active : inactive}>
-                        <Link href="/">Home</Link>
+                        <Link onClick={resetNavbar} href="/">
+                            Home
+                        </Link>
                     </li>
                     <li className={pathname === "/about" ? active : inactive}>
-                        <Link href="/about">About</Link>
+                        <Link onClick={resetNavbar} href="/about">
+                            About
+                        </Link>
                     </li>
                     <li className={pathname === "/work" ? active : inactive}>
-                        <Link href="/work">Work</Link>
+                        <Link onClick={resetNavbar} href="/work">
+                            Work
+                        </Link>
                     </li>
                     <li className={pathname === "/blogs" ? active : inactive}>
-                        <Link href="/blogs">Blogs</Link>
+                        <Link onClick={resetNavbar} href="/blogs">
+                            Blogs
+                        </Link>
                     </li>
                     <li
                         className={pathname === "/contacts" ? active : inactive}
                     >
-                        <Link href="/contacts">Contacts</Link>
+                        <Link onClick={resetNavbar} href="/contacts">
+                            Contacts
+                        </Link>
                     </li>
                 </ul>
             </motion.div>
