@@ -1,19 +1,44 @@
+"use client";
+import { motion } from "framer-motion";
+
 function ContactsPage() {
     return (
         <>
             <div className="flex flex-col items-center mt-36 mb-48">
-                <h1 className="text-3xl lg:text-4xl font-bold">
+                <motion.h1
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.5 }}
+                    className="text-3xl lg:text-4xl font-bold"
+                >
                     Let&apos;s Get In Touch
-                </h1>
-                <p className="w-4/5 lg:w-1/2 text-center mt-10">
+                </motion.h1>
+                <motion.p
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 1.0 }}
+                    className="w-4/5 lg:w-1/2 text-center mt-10"
+                >
                     As of now, I&apos;m not looking for any new job
                     opportunities, but my inbox is always open if you want to
                     communicate with me. Hit me up if you have some question,
                     want a collaboration or just play a game of chess. I&apos;ll
                     try to get back to you as soon as I can.
-                </p>
-                <h2 className="text-3xl my-5">Here are my Socials</h2>
-                <div className="flex w-4/5 xl:w-1/5 justify-evenly">
+                </motion.p>
+                <motion.h2
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 1.3 }}
+                    className="text-3xl my-5"
+                >
+                    Here are my Socials
+                </motion.h2>
+                <motion.div
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 1.3 }}
+                    className="flex w-4/5 xl:w-1/5 justify-evenly"
+                >
                     <a href="mailto:aayushkurup786@outlook.com">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -167,7 +192,7 @@ function ContactsPage() {
                             />
                         </svg>
                     </a>
-                </div>
+                </motion.div>
             </div>
         </>
     );
