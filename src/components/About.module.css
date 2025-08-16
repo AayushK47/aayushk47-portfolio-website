@@ -1,0 +1,180 @@
+.about {
+  width: 100%;
+  padding: 6rem 0;
+  background-color: var(--bg-secondary);
+}
+
+.aboutContent {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.aboutStory h3 {
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  font-size: 1.75rem;
+}
+
+.aboutStory p {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  color: var(--text-secondary);
+}
+
+.aboutStory a {
+  color: var(--primary-color);
+  text-decoration: underline;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.aboutStory a:hover {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+.textHighlight {
+  color: var(--primary-color);
+  text-decoration: underline;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.textHighlight:hover {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+.aboutHighlights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.highlightItem {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: var(--bg-primary);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.highlightItem:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.highlightNumber {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.highlightText {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.aboutImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.aboutImageContainer {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  transition: var(--transition);
+  border: 4px solid var(--bg-primary);
+}
+
+.aboutImageContainer:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-lg), 0 0 0 4px var(--primary-color);
+}
+
+.aboutPhoto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: var(--transition);
+}
+
+.aboutImageContainer:hover .aboutPhoto {
+  transform: scale(1.1);
+}
+
+@media (max-width: 1024px) {
+  .aboutContent {
+    gap: 3rem;
+  }
+  
+  .aboutHighlights {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding: 4rem 0;
+  }
+  
+  .aboutContent {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+  
+  .aboutHighlights {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  .highlightItem {
+    padding: 1rem;
+  }
+  
+  .highlightNumber {
+    font-size: 2rem;
+  }
+  
+  .aboutImageContainer {
+    width: 220px;
+    height: 220px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about {
+    padding: 3rem 0;
+  }
+  
+  .aboutHighlights {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .highlightItem {
+    padding: 1.5rem;
+  }
+  
+  .aboutImageContainer {
+    width: 180px;
+    height: 180px;
+  }
+}
+

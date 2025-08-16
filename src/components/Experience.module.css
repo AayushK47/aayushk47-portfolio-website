@@ -1,0 +1,333 @@
+.experience {
+  width: 100%;
+  padding: 6rem 0;
+  background-color: var(--bg-primary);
+}
+
+.experienceTimeline {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.experienceTimeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
+  transform: translateX(-50%);
+}
+
+.timelineItem {
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+.timelineItem:nth-child(odd) {
+  padding-right: 50%;
+}
+
+.timelineItem:nth-child(even) {
+  padding-left: 50%;
+}
+
+.timelineContent {
+  background-color: var(--bg-primary);
+  padding: 2.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  position: relative;
+  transition: var(--transition);
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+}
+
+.timelineContent:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-color);
+}
+
+.timelineItem::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 2.5rem;
+  width: 20px;
+  height: 20px;
+  background-color: var(--primary-color);
+  border: 4px solid var(--bg-primary);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  box-shadow: 0 0 0 2px var(--primary-color);
+}
+
+.timelineItem:nth-child(odd)::before {
+  left: calc(50% - 10px);
+}
+
+.timelineItem:nth-child(even)::before {
+  left: calc(50% + 10px);
+}
+
+.timelineHeader {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.timelineHeader .position {
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.companyInfo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.timelineHeader .company {
+  color: var(--primary-color);
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.timelineHeader .location {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.25rem 0.75rem;
+  background-color: var(--bg-secondary);
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+}
+
+.timelineHeader .duration {
+  color: var(--accent-color);
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  background-color: rgba(245, 158, 11, 0.1);
+  border-radius: 20px;
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+/* Description container - hidden by default, shown on hover */
+.descriptionContainer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out, margin 0.3s ease-in-out;
+  opacity: 0;
+  margin-bottom: 0;
+}
+
+.timelineContent:hover .descriptionContainer {
+  max-height: 100px;
+  opacity: 1;
+  margin-bottom: 1.5rem;
+}
+
+.timelineContent .description {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.95rem;
+  font-style: italic;
+}
+
+.achievements {
+  margin-bottom: 1.5rem;
+}
+
+.achievementsTitle {
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.achievementsTitle::before {
+  content: '🎯';
+  font-size: 1.2rem;
+}
+
+.achievementsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.achievementItem {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+  padding-left: 1.5rem;
+  position: relative;
+  font-size: 0.9rem;
+}
+
+.achievementItem::before {
+  content: '•';
+  color: var(--accent-color);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* Remaining achievements - hidden by default, shown on hover */
+.remainingAchievements {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  opacity: 0;
+}
+
+.timelineContent:hover .remainingAchievements {
+  max-height: 500px;
+  opacity: 1;
+}
+
+/* Technologies container - hidden by default, shown on hover */
+.technologiesContainer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out, margin 0.3s ease-in-out;
+  opacity: 0;
+  margin-top: 0;
+}
+
+.timelineContent:hover .technologiesContainer {
+  max-height: 200px;
+  opacity: 1;
+  margin-top: 1.5rem;
+}
+
+.technologies {
+  margin-top: 0;
+}
+
+.technologiesTitle {
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.technologiesTitle::before {
+  content: '⚡';
+  font-size: 1.2rem;
+}
+
+.techTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.techTag {
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  color: white;
+  padding: 0.375rem 0.875rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: none;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+
+.techTag:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+@media (max-width: 768px) {
+  .experience {
+    padding: 4rem 0;
+  }
+  
+  .experienceTimeline::before {
+    left: 20px;
+  }
+  
+  .timelineItem {
+    padding-left: 60px !important;
+    padding-right: 0 !important;
+  }
+  
+  .timelineItem::before {
+    left: 10px !important;
+  }
+  
+  .timelineContent {
+    padding: 1.5rem;
+  }
+  
+  .companyInfo {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .timelineHeader .position {
+    font-size: 1.25rem;
+  }
+  
+  /* Mobile hover effects - show content by default */
+  .descriptionContainer,
+  .remainingAchievements,
+  .technologiesContainer {
+    max-height: none;
+    opacity: 1;
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .experience {
+    padding: 3rem 0;
+  }
+  
+  .timelineContent {
+    padding: 1rem;
+  }
+  
+  .timelineHeader .position {
+    font-size: 1.125rem;
+  }
+  
+  .techTags {
+    gap: 0.25rem;
+  }
+  
+  .techTag {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+  }
+  
+  .achievementItem {
+    font-size: 0.85rem;
+    padding-left: 1.25rem;
+  }
+}
+

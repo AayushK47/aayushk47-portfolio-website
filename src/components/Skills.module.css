@@ -1,0 +1,200 @@
+.skills {
+  width: 100%;
+  padding: 6rem 0;
+  background-color: var(--bg-primary);
+}
+
+.skillsContent {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.skillsGrid {
+  display: grid;
+  gap: 2.5rem;
+}
+
+.skillCategory {
+  background-color: var(--bg-secondary);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+}
+
+.categoryTitle {
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+.skillsList {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.skillItem {
+  background-color: var(--bg-primary);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.skillItem:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.skillInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.skillName {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.skillLevel {
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.skillBar {
+  width: 100%;
+  height: 8px;
+  background-color: var(--border-color);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.skillProgress {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  border-radius: 4px;
+  transition: width 1s ease-in-out;
+}
+
+.toolsSection {
+  background-color: var(--bg-secondary);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+}
+
+.toolsTitle {
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+.toolsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.toolItem {
+  background-color: var(--bg-primary);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  border: 1px solid var(--border-color);
+}
+
+.toolItem:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary-color);
+}
+
+.toolName {
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+@media (max-width: 1024px) {
+  .skillsContent {
+    gap: 3rem;
+  }
+  
+  .toolsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .skills {
+    padding: 4rem 0;
+  }
+  
+  .skillsContent {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .skillCategory {
+    padding: 1.5rem;
+  }
+  
+  .skillItem {
+    padding: 1.25rem;
+  }
+  
+  .toolsSection {
+    padding: 1.5rem;
+  }
+  
+  .toolsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  
+  .toolItem {
+    padding: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills {
+    padding: 3rem 0;
+  }
+  
+  .skillCategory {
+    padding: 1rem;
+  }
+  
+  .skillItem {
+    padding: 1rem;
+  }
+  
+  .skillInfo {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .toolsSection {
+    padding: 1rem;
+  }
+  
+  .toolsGrid {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  
+  .toolItem {
+    padding: 1rem;
+  }
+}
+
