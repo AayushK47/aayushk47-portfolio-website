@@ -16,18 +16,15 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'   # Match your React app's Node version
+          node-version: '22'   # Match your React app's Node version
 
       - name: Install dependencies
         run: npm install
 
       - name: Build React app
         run: npm run build
-      
-      - name: Install firebase tools
-        run: npm install -g firebase
 
       - name: Deploy to Firebase
-        run: firebase deploy --only hosting --token "$FIREBASE_TOKEN"
+        run: npx firebase deploy --only hosting --token "$FIREBASE_TOKEN"
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
