@@ -22,12 +22,13 @@
 }
 
 .heroContainer {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 24px;
   position: relative;
   z-index: 2;
-  width: 100%;
+  box-sizing: border-box;
 }
 
 .heroContent {
@@ -36,14 +37,17 @@
   gap: 4rem;
   align-items: center;
   min-height: calc(100vh - 70px);
+  width: 100%;
 }
 
 .heroText {
   animation: fadeInUp 1s ease-out;
+  width: 100%;
 }
 
 .heroTitle {
   margin-bottom: 2rem;
+  width: 100%;
 }
 
 .heroTitle .greeting {
@@ -56,7 +60,7 @@
 
 .heroTitle .name {
   display: block;
-  font-size: 4rem;
+  font-size: clamp(2.5rem, 8vw, 4rem);
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 1rem;
@@ -64,27 +68,30 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  line-height: 1.1;
 }
 
 .heroTitle .title {
   display: block;
-  font-size: 1.5rem;
+  font-size: clamp(1.125rem, 3vw, 1.5rem);
   color: var(--text-secondary);
   font-weight: 500;
 }
 
 .heroDescription {
-  font-size: 1.125rem;
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
   line-height: 1.7;
   color: var(--text-secondary);
   margin-bottom: 2.5rem;
   max-width: 500px;
+  width: 100%;
 }
 
 .heroActions {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .heroVisual {
@@ -92,27 +99,30 @@
   justify-content: center;
   align-items: center;
   animation: fadeInRight 1s ease-out 0.3s both;
+  width: 100%;
 }
 
 .heroImagePlaceholder {
   position: relative;
-  width: 400px;
-  height: 400px;
+  width: clamp(220px, 50vw, 400px);
+  height: clamp(220px, 50vw, 400px);
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-lg);
+  animation: float 6s ease-in-out infinite;
 }
 
 .programmingImage {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
-  animation: float 6s ease-in-out infinite;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
-}
-
+/* Scroll Indicator */
 .scrollIndicator {
   position: absolute;
   bottom: 2rem;
@@ -125,6 +135,7 @@
   color: var(--text-secondary);
   font-size: 0.875rem;
   animation: bounce 2s infinite;
+  z-index: 3;
 }
 
 .scrollArrow {
@@ -135,7 +146,15 @@
   transform: rotate(45deg);
 }
 
-/* Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -158,94 +177,138 @@
   }
 }
 
-
-
 @keyframes bounce {
   0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
   40% { transform: translateX(-50%) translateY(-10px); }
   60% { transform: translateX(-50%) translateY(-5px); }
 }
 
-/* Responsive Design */
+/* Responsive Design - Mobile First */
+@media (max-width: 1200px) {
+  .heroContainer {
+    padding: 0 20px;
+  }
+}
+
 @media (max-width: 1024px) {
+  .hero {
+    padding-top: 75px;
+  }
+  
+  .heroContainer {
+    padding: 0 32px;
+  }
+  
   .heroContent {
-    gap: 3rem;
+    gap: 3.5rem;
+    padding: 1rem 0;
   }
   
   .heroTitle .name {
-    font-size: 3.5rem;
+    font-size: clamp(2.5rem, 7vw, 3.5rem);
   }
   
-  .programmingImage {
-    width: 350px;
-    height: 350px;
+  .heroDescription {
+    margin-bottom: 3rem;
   }
 }
 
 @media (max-width: 768px) {
   .hero {
-    padding-top: 60px;
+    padding-top: 80px;
+    padding-bottom: 2rem;
+  }
+  
+  .heroContainer {
+    padding: 0 24px;
   }
   
   .heroContent {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 4rem;
     text-align: center;
-    min-height: calc(100vh - 60px);
+    min-height: calc(100vh - 80px);
+    padding: 2rem 0;
   }
   
   .heroTitle .name {
-    font-size: 3rem;
+    font-size: clamp(2rem, 6vw, 3rem);
+    margin-bottom: 1.5rem;
   }
   
   .heroTitle .title {
-    font-size: 1.25rem;
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
   }
   
   .heroDescription {
-    margin: 0 auto 2.5rem;
+    margin: 0 auto 3rem;
+    font-size: clamp(0.875rem, 2.5vw, 1rem);
   }
   
   .heroActions {
     justify-content: center;
+    gap: 1.5rem;
   }
   
-  .programmingImage {
-    width: 280px;
-    height: 280px;
+  /* Hide elements on mobile */
+  .hideOnMobile {
+    display: none !important;
   }
 }
 
 @media (max-width: 480px) {
+  .hero {
+    padding-top: 70px;
+    padding-bottom: 3rem;
+  }
+  
   .heroContainer {
-    padding: 0 16px;
+    padding: 0 20px;
+  }
+  
+  .heroContent {
+    gap: 3rem;
+    padding: 1.5rem 0;
   }
   
   .heroTitle .name {
-    font-size: 2.5rem;
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    margin-bottom: 1.25rem;
   }
   
   .heroTitle .title {
-    font-size: 1.125rem;
+    font-size: clamp(0.875rem, 2.5vw, 1.125rem);
   }
   
   .heroDescription {
-    font-size: 1rem;
+    font-size: clamp(0.8rem, 2.5vw, 1rem);
+    margin-bottom: 2.5rem;
   }
   
   .heroActions {
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    gap: 1rem;
   }
   
   .btn {
     width: 100%;
     max-width: 250px;
   }
+}
+
+@media (max-width: 360px) {
+  .heroContainer {
+    padding: 0 8px;
+  }
   
-  .programmingImage {
-    width: 220px;
-    height: 220px;
+  .heroContent {
+    gap: 2rem;
+  }
+  
+  .heroTitle .name {
+    font-size: clamp(1.5rem, 4vw, 2rem);
   }
 }
 

@@ -2,83 +2,157 @@
   width: 100%;
   padding: 6rem 0;
   background-color: var(--bg-primary);
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 .skillsContent {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 4rem;
+  gap: 3rem;
   align-items: start;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
-.skillsGrid {
+/* Charts Section */
+.chartsSection {
   display: grid;
-  gap: 2.5rem;
+  gap: 3rem;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
-.skillCategory {
+.chartCategory {
   background-color: var(--bg-secondary);
   padding: 2rem;
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-sm);
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
-.categoryTitle {
+.chartTitle {
   color: var(--text-primary);
   margin-bottom: 1.5rem;
   font-size: 1.25rem;
   text-align: center;
 }
 
-.skillsList {
+.stackedBarChart {
   display: grid;
   gap: 1.5rem;
+  width: 100%;
+  overflow: hidden;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
-.skillItem {
+.chartBar {
+  height: 40px;
   background-color: var(--bg-primary);
-  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  display: flex;
+  box-shadow: var(--shadow-sm);
+  width: 100%;
+  min-width: 0;
+  flex-wrap: nowrap;
+  box-sizing: border-box;
+  position: relative;
+  align-items: stretch;
+}
+
+.chartSegment {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  max-width: 100%;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+  flex-shrink: 1;
+  flex-grow: 0;
+  box-sizing: border-box;
+  width: auto;
+  align-self: stretch;
+}
+
+.chartSegment:hover {
+  filter: brightness(1.1);
+  transform: scaleY(1.05);
+}
+
+.segmentLabel {
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  padding: 0 2px;
+  pointer-events: none;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+.chartLegend {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background-color: var(--bg-primary);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-sm);
   transition: var(--transition);
-}
-
-.skillItem:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-}
-
-.skillInfo {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-
-.skillName {
-  color: var(--text-primary);
-  font-weight: 500;
-}
-
-.skillLevel {
-  color: var(--primary-color);
-  font-weight: 600;
-  font-size: 0.875rem;
-}
-
-.skillBar {
-  width: 100%;
-  height: 8px;
-  background-color: var(--border-color);
-  border-radius: 4px;
+  min-width: 0;
   overflow: hidden;
 }
 
-.skillProgress {
-  height: 100%;
-  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-  border-radius: 4px;
-  transition: width 1s ease-in-out;
+.legendItem:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.legendColor {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.legendName {
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.legendValue {
+  color: var(--primary-color);
+  font-size: 0.875rem;
+  font-weight: 600;
+  flex-shrink: 0;
 }
 
 .toolsSection {
@@ -86,19 +160,31 @@
   padding: 2rem;
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-sm);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .toolsTitle {
   color: var(--text-primary);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   font-size: 1.25rem;
   text-align: center;
 }
 
+.toolsDescription {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  opacity: 0.8;
+}
+
 .toolsGrid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .toolItem {
@@ -109,6 +195,9 @@
   box-shadow: var(--shadow-sm);
   transition: var(--transition);
   border: 1px solid var(--border-color);
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .toolItem:hover {
@@ -121,47 +210,303 @@
   color: var(--text-secondary);
   font-weight: 500;
   font-size: 0.875rem;
+  display: block;
+  margin-bottom: 0.25rem;
 }
 
-@media (max-width: 1024px) {
-  .skillsContent {
-    gap: 3rem;
+.toolUsage {
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 0.75rem;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.toolCategory {
+  color: var(--text-secondary);
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  opacity: 0.7;
+}
+
+/* Tool category colors */
+.cicd {
+  border-left: 3px solid #0366d6;
+}
+
+.devops {
+  border-left: 3px solid #28a745;
+}
+
+.cloud {
+  border-left: 3px solid #ff6b35;
+}
+
+.monitoring {
+  border-left: 3px solid #6f42c1;
+}
+
+.testing {
+  border-left: 3px solid #fd7e14;
+}
+
+/* GitHub Calendar Section */
+.githubSection {
+  background-color: var(--bg-secondary);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.githubTitle {
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+.githubDescription {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  opacity: 0.8;
+}
+
+.calendarContainer {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  background-color: var(--bg-primary);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  overflow-x: auto;
+  width: 100%;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+/* Customize GitHub Calendar styles */
+.calendarContainer svg {
+  max-width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.calendarContainer .react-github-calendar__graph {
+  overflow: visible;
+}
+
+.calendarContainer .react-github-calendar__legend {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.calendarContainer .react-github-calendar__legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+/* Loading and Error States */
+.loading, .error {
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+.error {
+  color: #dc3545;
+}
+
+/* Tooltip */
+.tooltip {
+  position: fixed;
+  background-color: var(--bg-dark);
+  color: white;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--border-radius);
+  font-size: 0.875rem;
+  font-weight: 500;
+  box-shadow: var(--shadow-lg);
+  z-index: 1000;
+  pointer-events: none;
+  white-space: nowrap;
+  max-width: 300px;
+  text-align: center;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: var(--bg-dark);
+}
+
+/* Responsive Design - Mobile First */
+@media (max-width: 1200px) {
+  .skills {
+    padding: 5rem 0;
+  }
+  
+  .chartLegend {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   }
   
   .toolsGrid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+}
+
+@media (max-width: 1024px) {
+  .skills {
+    padding: 4.5rem 0;
+  }
+  
+  .skillsContent {
+    gap: 2.5rem;
+  }
+  
+  .chartCategory {
+    padding: 1.75rem;
+  }
+  
+  .chartBar {
+    height: 38px;
+  }
+  
+  .chartSegment {
+    min-width: 0;
+    max-width: 100%;
+  }
+  
+  .chartLegend {
+    display: none;
+  }
+  
+  .toolsSection {
+    padding: 1.75rem;
+  }
+  
+  .toolsGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.875rem;
+  }
+  
+  .githubSection {
+    padding: 1.75rem;
+  }
+  
+  .calendarContainer {
+    padding: 0.875rem;
   }
 }
 
 @media (max-width: 768px) {
   .skills {
-    padding: 4rem 0;
+    padding: 4rem 0 !important;
   }
   
   .skillsContent {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 2rem !important;
   }
   
-  .skillCategory {
-    padding: 1.5rem;
+  .chartCategory {
+    padding: 1.5rem !important;
+    overflow: hidden !important;
+    max-width: 100% !important;
   }
   
-  .skillItem {
-    padding: 1.25rem;
+  .chartBar {
+    height: 35px !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  .chartSegment {
+    min-width: 0 !important;
+    flex-shrink: 1 !important;
+    max-width: 100% !important;
+    width: auto !important;
+    min-width: 8px !important;
+  }
+  
+  .chartLegend {
+    display: none !important;
   }
   
   .toolsSection {
-    padding: 1.5rem;
+    padding: 1.5rem !important;
   }
   
   .toolsGrid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.75rem !important;
   }
   
   .toolItem {
-    padding: 0.75rem;
+    padding: 0.75rem !important;
+    min-width: 0 !important;
+  }
+  
+  .githubSection {
+    padding: 1.5rem !important;
+  }
+  
+  .calendarContainer {
+    padding: 0.75rem !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    max-width: 100% !important;
+  }
+  
+  .calendarContainer svg {
+    min-width: 600px !important;
+    max-width: none !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .chartBar {
+    height: 32px !important;
+    overflow: hidden !important;
+    width: 100% !important;
+  }
+  
+  .chartSegment {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+    min-width: 6px !important;
+  }
+  
+  .chartLegend {
+    display: none !important;
+  }
+  
+  .toolsGrid {
+    grid-template-columns: 1fr !important;
+    gap: 0.6rem !important;
+  }
+  
+  .calendarContainer svg {
+    min-width: 500px !important;
   }
 }
 
@@ -170,31 +515,111 @@
     padding: 3rem 0;
   }
   
-  .skillCategory {
+  .chartCategory {
     padding: 1rem;
   }
   
-  .skillItem {
-    padding: 1rem;
+  .chartBar {
+    height: 30px;
   }
   
-  .skillInfo {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
+  .chartSegment {
+    min-width: 4px;
+  }
+  
+  .chartLegend {
+    display: none;
   }
   
   .toolsSection {
     padding: 1rem;
   }
   
+  .toolItem {
+    padding: 1rem;
+  }
+  
+  .githubSection {
+    padding: 1rem;
+  }
+  
+  .calendarContainer {
+    padding: 0.5rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .calendarContainer svg {
+    min-width: 450px;
+  }
+}
+
+@media (max-width: 360px) {
+  .skills {
+    padding: 2rem 0;
+  }
+  
+  .chartCategory {
+    padding: 0.75rem;
+  }
+  
+  .chartBar {
+    height: 28px;
+  }
+  
+  .chartSegment {
+    min-width: 3px;
+  }
+  
+  .chartLegend {
+    display: none;
+  }
+  
+  .toolsSection {
+    padding: 0.75rem;
+  }
+  
   .toolsGrid {
-    grid-template-columns: 1fr;
-    gap: 0.5rem;
+    gap: 0.4rem;
   }
   
   .toolItem {
-    padding: 1rem;
+    padding: 0.875rem;
+  }
+  
+  .githubSection {
+    padding: 0.75rem;
+  }
+  
+  .calendarContainer {
+    padding: 0.4rem;
+  }
+  
+  .calendarContainer svg {
+    min-width: 400px;
+  }
+}
+
+@media (max-width: 320px) {
+  .chartBar {
+    height: 25px;
+  }
+  
+  .chartSegment {
+    min-width: 2px;
+  }
+  
+  .segmentLabel {
+    font-size: 0.65rem;
+    padding: 0 1px;
+  }
+  
+  .chartLegend {
+    display: none;
+  }
+  
+  .calendarContainer svg {
+    min-width: 350px;
   }
 }
 

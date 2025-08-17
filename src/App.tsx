@@ -1,6 +1,6 @@
 import './App.css'
 import { useState, useEffect } from 'react'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { Toaster } from 'react-hot-toast'
 
 // Components
 import Navigation from './components/Navigation'
@@ -11,18 +11,6 @@ import Blogs from './components/Blogs'
 import Skills from './components/Skills'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
-
-// Create a client
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      staleTime: 1000 * 60 * 5, // 5 minutes
-      gcTime: 1000 * 60 * 10, // 10 minutes
-      retry: 2,
-      refetchOnWindowFocus: false,
-    },
-  },
-})
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
@@ -43,20 +31,42 @@ function App() {
   }
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <div className="App">
-        <Navigation />
-        <main>
-          <Hero />
-          <About />
-          <Experience />
-          <Blogs />
-          <Skills />
-          <Contact />
-        </main>
-        <Footer />
-      </div>
-    </QueryClientProvider>
+    <div className="App">
+      <Navigation />
+      <main>
+        <Hero />
+        <About />
+        <Experience />
+        <Blogs />
+        <Skills />
+        <Contact />
+      </main>
+      <Footer />
+      <Toaster 
+        position="top-right"
+        toastOptions={{
+          duration: 5000,
+          style: {
+            background: '#363636',
+            color: '#fff',
+          },
+          success: {
+            duration: 5000,
+            iconTheme: {
+              primary: '#10b981',
+              secondary: '#fff',
+            },
+          },
+          error: {
+            duration: 6000,
+            iconTheme: {
+              primary: '#ef4444',
+              secondary: '#fff',
+            },
+          },
+        }}
+      />
+    </div>
   )
 }
 

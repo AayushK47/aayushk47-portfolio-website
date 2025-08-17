@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { useContactSubmission } from '../hooks/useContactSubmission'
+import toast from 'react-hot-toast'
 import styles from './Contact.module.css'
 
 const Contact = () => {
@@ -9,7 +11,7 @@ const Contact = () => {
     message: ''
   })
 
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const contactMutation = useContactSubmission()
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -21,14 +23,19 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setIsSubmitting(true)
     
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false)
-      alert('Thank you for your message! I\'ll get back to you soon.')
+    try {
+      await contactMutation.mutateAsync(formData)
+      
+      // Show success toast
+      toast.success('Thank you for your message! I\'ll get back to you soon.')
+      
+      // Reset form
       setFormData({ name: '', email: '', subject: '', message: '' })
-    }, 1000)
+    } catch (error) {
+      // Show error toast
+      toast.error(error instanceof Error ? error.message : 'Failed to send message. Please try again.')
+    }
   }
 
   const socialLinks = [
@@ -181,9 +188,9 @@ const Contact = () => {
               <button 
                 type="submit" 
                 className="btn btn-primary"
-                disabled={isSubmitting}
+                disabled={contactMutation.isPending}
               >
-                {isSubmitting ? 'Sending...' : 'Send Message'}
+                {contactMutation.isPending ? 'Sending...' : 'Send Message'}
               </button>
             </form>
           </div>

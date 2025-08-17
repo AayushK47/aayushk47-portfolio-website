@@ -38,7 +38,7 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className={styles.heroVisual}>
+          <div className={`${styles.heroVisual} ${styles.hideOnMobile}`}>
             <div className={styles.heroImagePlaceholder}>
               <img
                 src={programmingSvg}
@@ -49,7 +49,7 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className={styles.scrollIndicator}>
+        <div className={`${styles.scrollIndicator} ${styles.hideOnMobile}`}>
           <div className={styles.scrollArrow}></div>
           <span>Scroll to explore</span>
         </div>
