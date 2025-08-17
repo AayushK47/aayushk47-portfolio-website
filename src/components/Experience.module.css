@@ -67,11 +67,13 @@
 }
 
 .timelineItem:nth-child(odd)::before {
-  left: calc(50% - 10px);
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .timelineItem:nth-child(even)::before {
-  left: calc(50% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .timelineHeader {
@@ -260,6 +262,16 @@
   box-shadow: var(--shadow-md);
 }
 
+@media (max-width: 1024px) {
+  .experience {
+    padding: 5rem 0;
+  }
+  
+  .experienceTimeline {
+    max-width: 800px;
+  }
+}
+
 @media (max-width: 768px) {
   .experience {
     padding: 4rem 0;
@@ -275,7 +287,8 @@
   }
   
   .timelineItem::before {
-    left: 10px !important;
+    left: 20px !important;
+    transform: translateX(-50%) !important;
   }
   
   .timelineContent {
@@ -328,6 +341,21 @@
   .achievementItem {
     font-size: 0.85rem;
     padding-left: 1.25rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .experienceTimeline::before {
+    left: 15px;
+  }
+  
+  .timelineItem {
+    padding-left: 50px !important;
+  }
+  
+  .timelineItem::before {
+    left: 15px !important;
+    transform: translateX(-50%) !important;
   }
 }
 
