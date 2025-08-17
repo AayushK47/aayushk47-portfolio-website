@@ -1,4 +1,5 @@
 import styles from './Footer.module.css'
+import brandSvg from '../assets/brand.svg'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
@@ -9,7 +10,11 @@ const Footer = () => {
         <div className={styles.footerContent}>
           <div className={styles.footerSection}>
             <div className={styles.footerLogo}>
-              <span className={styles.logoText}>AK</span>
+              <img 
+                src={brandSvg} 
+                alt="Aayush Kurup - Frontend Developer" 
+                className={styles.logoImage}
+              />
             </div>
             <p className={styles.footerDescription}>
               Frontend Developer & UI/UX Designer creating exceptional digital experiences.

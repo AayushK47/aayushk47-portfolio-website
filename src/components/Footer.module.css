@@ -31,6 +31,17 @@
   background-clip: text;
 }
 
+.footerLogo .logoImage {
+  height: 40px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  transition: var(--transition);
+}
+
+.footerLogo .logoImage:hover {
+  filter: brightness(1) invert(0);
+}
+
 .footerDescription {
   color: var(--text-light);
   line-height: 1.6;
@@ -112,6 +123,11 @@
     text-align: center;
   }
   
+  .footerLogo .logoImage {
+    height: 35px;
+    margin: 0 auto;
+  }
+  
   .footerBottom {
     flex-direction: column;
     text-align: center;
@@ -126,6 +142,10 @@
   
   .footerContent {
     gap: 1.5rem;
+  }
+  
+  .footerLogo .logoImage {
+    height: 30px;
   }
   
   .footerSection h4 {
