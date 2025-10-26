@@ -142,10 +142,6 @@ export const useAnalysisResults = () => {
         const docSnap = await getDoc(docRef)
         
         if (docSnap.exists()) {
-          console.log({
-            id: docSnap.id,
-            ...docSnap.data()
-          })
           return {
             id: docSnap.id,
             ...docSnap.data()
