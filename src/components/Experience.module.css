@@ -30,8 +30,16 @@
   padding-right: 50%;
 }
 
+.timelineItem:nth-child(odd) .timelineContent {
+  margin-right: 2rem;
+}
+
 .timelineItem:nth-child(even) {
   padding-left: 50%;
+}
+
+.timelineItem:nth-child(even) .timelineContent {
+  margin-left: 2rem;
 }
 
 .timelineContent {
@@ -284,6 +292,11 @@
   .timelineItem {
     padding-left: 60px !important;
     padding-right: 0 !important;
+  }
+  
+  .timelineItem .timelineContent {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
   
   .timelineItem::before {

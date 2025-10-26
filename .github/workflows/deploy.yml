@@ -3,7 +3,8 @@ name: Deploy to Firebase Hosting
 on:
   push:
     branches:
-      - main   # or "master" depending on your repo
+      - main
+  workflow_dispatch:
 
 jobs:
   build_and_deploy:
@@ -16,7 +17,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22'   # Match your React app's Node version
+          node-version: '22'
 
       - name: Install dependencies
         run: npm install

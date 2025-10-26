@@ -19,88 +19,21 @@
 /* Charts Section */
 .chartsSection {
   display: grid;
-  gap: 3rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
   width: 100%;
   max-width: 100%;
   overflow: hidden;
   box-sizing: border-box;
-}
-
-.chartCategory {
-  background-color: var(--bg-secondary);
-  padding: 2rem;
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow-sm);
-  width: 100%;
-  box-sizing: border-box;
-  overflow: hidden;
-}
-
-.chartTitle {
-  color: var(--text-primary);
-  margin-bottom: 1.5rem;
-  font-size: 1.25rem;
-  text-align: center;
-}
-
-.stackedBarChart {
-  display: grid;
-  gap: 1.5rem;
-  width: 100%;
-  overflow: hidden;
-  max-width: 100%;
-  box-sizing: border-box;
-}
-
-.chartBar {
-  height: 40px;
-  background-color: var(--bg-primary);
-  border-radius: var(--border-radius);
-  overflow: hidden;
-  display: flex;
-  box-shadow: var(--shadow-sm);
-  width: 100%;
-  min-width: 0;
-  flex-wrap: nowrap;
-  box-sizing: border-box;
-  position: relative;
   align-items: stretch;
 }
 
-.chartSegment {
-  position: relative;
+.chartWrapper {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 0;
-  max-width: 100%;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  overflow: hidden;
-  flex-shrink: 1;
-  flex-grow: 0;
-  box-sizing: border-box;
-  width: auto;
-  align-self: stretch;
-}
-
-.chartSegment:hover {
-  filter: brightness(1.1);
-  transform: scaleY(1.05);
-}
-
-.segmentLabel {
-  color: white;
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 100%;
-  padding: 0 2px;
-  pointer-events: none;
-  user-select: none;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  height: 100%;
   box-sizing: border-box;
 }
 
@@ -155,101 +88,6 @@
   flex-shrink: 0;
 }
 
-.toolsSection {
-  background-color: var(--bg-secondary);
-  padding: 2rem;
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow-sm);
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.toolsTitle {
-  color: var(--text-primary);
-  margin-bottom: 1rem;
-  font-size: 1.25rem;
-  text-align: center;
-}
-
-.toolsDescription {
-  color: var(--text-secondary);
-  font-size: 0.875rem;
-  text-align: center;
-  margin-bottom: 1.5rem;
-  opacity: 0.8;
-}
-
-.toolsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.toolItem {
-  background-color: var(--bg-primary);
-  padding: 1rem;
-  border-radius: var(--border-radius);
-  text-align: center;
-  box-shadow: var(--shadow-sm);
-  transition: var(--transition);
-  border: 1px solid var(--border-color);
-  position: relative;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.toolItem:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-  border-color: var(--primary-color);
-}
-
-.toolName {
-  color: var(--text-secondary);
-  font-weight: 500;
-  font-size: 0.875rem;
-  display: block;
-  margin-bottom: 0.25rem;
-}
-
-.toolUsage {
-  color: var(--primary-color);
-  font-weight: 600;
-  font-size: 0.75rem;
-  display: block;
-  margin-bottom: 0.25rem;
-}
-
-.toolCategory {
-  color: var(--text-secondary);
-  font-size: 0.625rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  opacity: 0.7;
-}
-
-/* Tool category colors */
-.cicd {
-  border-left: 3px solid #0366d6;
-}
-
-.devops {
-  border-left: 3px solid #28a745;
-}
-
-.cloud {
-  border-left: 3px solid #ff6b35;
-}
-
-.monitoring {
-  border-left: 3px solid #6f42c1;
-}
-
-.testing {
-  border-left: 3px solid #fd7e14;
-}
 
 /* GitHub Calendar Section */
 .githubSection {
@@ -331,13 +169,14 @@
 /* Tooltip */
 .tooltip {
   position: fixed;
-  background-color: var(--bg-dark);
-  color: white;
-  padding: 0.5rem 0.75rem;
+  background-color: white;
+  color: var(--text-primary);
+  padding: 0.75rem 1rem;
   border-radius: var(--border-radius);
   font-size: 0.875rem;
   font-weight: 500;
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 1px solid var(--border-color);
   z-index: 1000;
   pointer-events: none;
   white-space: nowrap;
@@ -354,7 +193,7 @@
   left: 50%;
   transform: translateX(-50%);
   border: 5px solid transparent;
-  border-top-color: var(--bg-dark);
+  border-top-color: white;
 }
 
 /* Responsive Design - Mobile First */
@@ -363,12 +202,13 @@
     padding: 5rem 0;
   }
   
-  .chartLegend {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  .chartsSection {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
   }
   
-  .toolsGrid {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  .chartLegend {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   }
 }
 
@@ -381,30 +221,13 @@
     gap: 2.5rem;
   }
   
-  .chartCategory {
-    padding: 1.75rem;
-  }
-  
-  .chartBar {
-    height: 38px;
-  }
-  
-  .chartSegment {
-    min-width: 0;
-    max-width: 100%;
+  /* iPad: 2x2 grid */
+  .chartsSection {
+    grid-template-columns: repeat(2, 1fr);
   }
   
   .chartLegend {
-    display: none;
-  }
-  
-  .toolsSection {
-    padding: 1.75rem;
-  }
-  
-  .toolsGrid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.875rem;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   }
   
   .githubSection {
@@ -425,44 +248,19 @@
     gap: 2rem !important;
   }
   
-  .chartCategory {
-    padding: 1.5rem !important;
-    overflow: hidden !important;
-    max-width: 100% !important;
+  /* Mobile: 4x1 grid (stacked vertically) */
+  .chartsSection {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
   }
   
-  .chartBar {
-    height: 35px !important;
-    min-width: 0 !important;
-    overflow: hidden !important;
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-  
-  .chartSegment {
-    min-width: 0 !important;
-    flex-shrink: 1 !important;
-    max-width: 100% !important;
-    width: auto !important;
-    min-width: 8px !important;
+  .chartWrapper {
+    gap: 1rem !important;
   }
   
   .chartLegend {
-    display: none !important;
-  }
-  
-  .toolsSection {
-    padding: 1.5rem !important;
-  }
-  
-  .toolsGrid {
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 0.75rem !important;
-  }
-  
-  .toolItem {
-    padding: 0.75rem !important;
-    min-width: 0 !important;
+    gap: 0.5rem !important;
   }
   
   .githubSection {
@@ -483,26 +281,8 @@
 }
 
 @media (max-width: 600px) {
-  .chartBar {
-    height: 32px !important;
-    overflow: hidden !important;
-    width: 100% !important;
-  }
-  
-  .chartSegment {
-    min-width: 0 !important;
-    max-width: 100% !important;
-    overflow: hidden !important;
-    min-width: 6px !important;
-  }
-  
   .chartLegend {
-    display: none !important;
-  }
-  
-  .toolsGrid {
     grid-template-columns: 1fr !important;
-    gap: 0.6rem !important;
   }
   
   .calendarContainer svg {
@@ -515,28 +295,8 @@
     padding: 3rem 0;
   }
   
-  .chartCategory {
-    padding: 1rem;
-  }
-  
-  .chartBar {
-    height: 30px;
-  }
-  
-  .chartSegment {
-    min-width: 4px;
-  }
-  
-  .chartLegend {
-    display: none;
-  }
-  
-  .toolsSection {
-    padding: 1rem;
-  }
-  
-  .toolItem {
-    padding: 1rem;
+  .chartsSection {
+    gap: 1rem;
   }
   
   .githubSection {
@@ -559,34 +319,6 @@
     padding: 2rem 0;
   }
   
-  .chartCategory {
-    padding: 0.75rem;
-  }
-  
-  .chartBar {
-    height: 28px;
-  }
-  
-  .chartSegment {
-    min-width: 3px;
-  }
-  
-  .chartLegend {
-    display: none;
-  }
-  
-  .toolsSection {
-    padding: 0.75rem;
-  }
-  
-  .toolsGrid {
-    gap: 0.4rem;
-  }
-  
-  .toolItem {
-    padding: 0.875rem;
-  }
-  
   .githubSection {
     padding: 0.75rem;
   }
@@ -601,23 +333,6 @@
 }
 
 @media (max-width: 320px) {
-  .chartBar {
-    height: 25px;
-  }
-  
-  .chartSegment {
-    min-width: 2px;
-  }
-  
-  .segmentLabel {
-    font-size: 0.65rem;
-    padding: 0 1px;
-  }
-  
-  .chartLegend {
-    display: none;
-  }
-  
   .calendarContainer svg {
     min-width: 350px;
   }

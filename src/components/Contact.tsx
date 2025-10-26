@@ -132,7 +132,6 @@ const Contact = () => {
                     title={social.name}
                   >
                     {social.icon}
-                    <span className={styles.socialName}>{social.name}</span>
                   </a>
                 ))}
               </div>

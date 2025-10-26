@@ -1,6 +1,7 @@
 import { useAnalysisResults } from '../hooks/useFirebaseData'
 import { useState } from 'react'
 import GitHubCalendar from 'react-github-calendar'
+import PieChart from './PieChart'
 import styles from './Skills.module.css'
 
 interface TooltipData {
@@ -48,11 +49,11 @@ const Skills = () => {
 
   if (!analysisResults) return null
 
-  // Prepare data for stacked bar chart
+  // Prepare data for pie charts
   const chartData = [
     {
       category: "Programming Languages",
-      data: analysisResults.summary.languageBreakdown.slice(0, 6).map(lang => ({
+      data: analysisResults.summary.languageBreakdown.map(lang => ({
         name: lang.language,
         value: lang.linesOfCode,
         percentage: (lang.linesOfCode / analysisResults.summary.totalLinesOfCode * 100).toFixed(1),
@@ -84,12 +85,12 @@ const Skills = () => {
           fileCount: fw.fileCount || 0,
           color: getFrameworkColor(fw.key || fw.frameworkKey || '')
         }))
-      ].slice(0, 5)
+      ]
     },
     {
       category: "Databases & ORMs",
       data: [
-        ...analysisResults.databases.orm.slice(0, 3).map(db => ({
+        ...analysisResults.databases.orm.map(db => ({
           name: db.name,
           value: db.repositoryCount,
           percentage: parseFloat(db.percentageOfRepositories).toFixed(1),
@@ -97,7 +98,7 @@ const Skills = () => {
           fileCount: 0,
           color: getDatabaseColor(db.key)
         })),
-        ...analysisResults.databases.sql.slice(0, 2).map(db => ({
+        ...analysisResults.databases.sql.map(db => ({
           name: db.name,
           value: db.repositoryCount,
           percentage: parseFloat(db.percentageOfRepositories).toFixed(1),
@@ -105,7 +106,7 @@ const Skills = () => {
           fileCount: 0,
           color: getDatabaseColor(db.key)
         })),
-        ...analysisResults.databases.nosql.slice(0, 2).map(db => ({
+        ...analysisResults.databases.nosql.map(db => ({
           name: db.name,
           value: db.repositoryCount,
           percentage: parseFloat(db.percentageOfRepositories).toFixed(1),
@@ -113,19 +114,29 @@ const Skills = () => {
           fileCount: 0,
           color: getDatabaseColor(db.key)
         }))
-      ].slice(0, 6)
+      ]
     }
   ]
 
-  const tools = analysisResults.tools.slice(0, 8).map(tool => ({
+  // Prepare tools data for pie chart
+  const toolsData = analysisResults.tools.map(tool => ({
     name: tool.name,
-    category: tool.category,
-    usage: tool.percentageOfRepositories
+    value: tool.repositoryCount,
+    percentage: tool.percentageOfRepositories,
+    repositoryCount: tool.repositoryCount,
+    fileCount: 0,
+    color: getToolColor(tool.category)
   }))
 
   const handleSegmentHover = (event: React.MouseEvent, item: ChartItem, category: string) => {
     const rect = event.currentTarget.getBoundingClientRect()
-    const tooltipContent = `${item.name}: ${item.percentage}% (${item.repositoryCount} repos, ${item.value.toLocaleString()} ${category === "Programming Languages" ? "lines" : "repos"})`
+    let tooltipContent = ''
+    
+    if (category === "Programming Languages") {
+      tooltipContent = `${item.name} - ${item.percentage}% (${item.repositoryCount} repos, ${item.value.toLocaleString()} lines)`
+    } else {
+      tooltipContent = `${item.name} - ${item.percentage}% (${item.repositoryCount} / ${analysisResults.summary.totalRepositories} repos)`
+    }
     
     setTooltip({
       content: tooltipContent,
@@ -151,60 +162,26 @@ const Skills = () => {
         </div>
         
         <div className={styles.skillsContent}>
-          {/* Stacked Bar Charts */}
+          {/* Pie Charts */}
           <div className={styles.chartsSection}>
             {chartData.map((category, categoryIndex) => (
-              <div key={categoryIndex} className={styles.chartCategory}>
-                <h3 className={styles.chartTitle}>{category.category}</h3>
-                <div className={styles.stackedBarChart}>
-                  <div className={styles.chartBar}>
-                    {category.data.map((item, itemIndex) => (
-                      <div
-                        key={itemIndex}
-                        className={styles.chartSegment}
-                        style={{
-                          width: `${item.percentage}%`,
-                          backgroundColor: item.color
-                        }}
-                        onMouseEnter={(e) => handleSegmentHover(e, item, category.category)}
-                        onMouseLeave={handleSegmentLeave}
-                      >
-                        <span className={styles.segmentLabel}>
-                          {parseFloat(item.percentage) >= 8 ? item.name : ''}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                  <div className={styles.chartLegend}>
-                    {category.data.map((item, itemIndex) => (
-                      <div key={itemIndex} className={styles.legendItem}>
-                        <div 
-                          className={styles.legendColor} 
-                          style={{ backgroundColor: item.color }}
-                        ></div>
-                        <span className={styles.legendName}>{item.name}</span>
-                        <span className={styles.legendValue}>{item.percentage}%</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+              <div key={categoryIndex} className={styles.chartWrapper}>
+                <PieChart
+                  data={category.data}
+                  title={category.category}
+                  onSegmentHover={(e, item) => handleSegmentHover(e, item, category.category)}
+                  onSegmentLeave={handleSegmentLeave}
+                />
               </div>
             ))}
-          </div>
-          
-          <div className={styles.toolsSection}>
-            <h3 className={styles.toolsTitle}>Tools & Technologies</h3>
-            <p className={styles.toolsDescription}>
-              DevOps, CI/CD, Cloud platforms, and development tools I use
-            </p>
-            <div className={styles.toolsGrid}>
-              {tools.map((tool, index) => (
-                <div key={index} className={`${styles.toolItem} ${styles[tool.category]}`}>
-                  <span className={styles.toolName}>{tool.name}</span>
-                  <span className={styles.toolUsage}>{tool.usage}%</span>
-                  <span className={styles.toolCategory}>{tool.category}</span>
-                </div>
-              ))}
+            
+            <div className={styles.chartWrapper}>
+              <PieChart
+                data={toolsData}
+                title="Other Tools"
+                onSegmentHover={(e, item) => handleSegmentHover(e, item, "Tools")}
+                onSegmentLeave={handleSegmentLeave}
+              />
             </div>
           </div>
 
@@ -253,24 +230,24 @@ const getLanguageColor = (key: string): string => {
   const colors: Record<string, string> = {
     ts: '#3178c6',      // TypeScript blue
     js: '#f7df1e',      // JavaScript yellow
-    py: '#3776ab',      // Python blue
-    go: '#00add8',      // Go blue
+    py: '#306998',      // Python blue (darker)
+    go: '#00add8',      // Go cyan
     java: '#ed8b00',    // Java orange
     c: '#555555',       // C gray
-    html: '#e34c26',    // HTML orange
-    css: '#1572b6',     // CSS blue
-    dart: '#00b4ab'     // Dart teal
+    html: '#e34c26',    // HTML orange-red
+    css: '#264de4',     // CSS blue (darker, more distinct)
+    dart: '#0175c2'     // Dart blue
   }
   return colors[key] || '#6b7280'
 }
 
 const getFrameworkColor = (key: string): string => {
   const colors: Record<string, string> = {
-    reactNext: '#61dafb',  // React blue
-    express: '#000000',     // Express black
+    reactNext: '#61dafb',   // React cyan
+    express: '#259dff',     // Express blue (changed from black)
     flask: '#000000',       // Flask black
     flutter: '#02569b',     // Flutter blue
-    gofiber: '#00add8'      // Go Fiber blue
+    gofiber: '#00d9ff'      // Go Fiber light cyan (changed to be distinct)
   }
   return colors[key] || '#8b5cf6'
 }
@@ -278,16 +255,27 @@ const getFrameworkColor = (key: string): string => {
 const getDatabaseColor = (key: string): string => {
   const colors: Record<string, string> = {
     postgresql: '#336791',  // PostgreSQL blue
-    mysql: '#4479a1',       // MySQL blue
+    mysql: '#00758f',       // MySQL teal (darker, more distinct)
     mongodb: '#47a248',     // MongoDB green
     redis: '#dc382d',       // Redis red
-    prisma: '#2d3748',      // Prisma dark
-    sequelize: '#52b0e7',   // Sequelize blue
-    typeorm: '#f03e2f',     // TypeORM red
+    prisma: '#2d3748',      // Prisma dark gray
+    sequelize: '#52b0e7',   // Sequelize light blue
+    typeorm: '#fe0902',     // TypeORM bright red (more distinct)
     sqlalchemy: '#d71f16',  // SQLAlchemy red
-    gorm: '#00add8'         // GORM blue
+    gorm: '#00d4aa'         // GORM teal (changed to be distinct)
   }
   return colors[key] || '#6b7280'
+}
+
+const getToolColor = (category: string): string => {
+  const colors: Record<string, string> = {
+    cicd: '#2088ff',        // Blue
+    devops: '#28a745',      // Green
+    cloud: '#ff6b35',       // Orange
+    monitoring: '#6f42c1',  // Purple
+    testing: '#e535ab'      // Pink (changed from orange)
+  }
+  return colors[category] || '#6b7280'
 }
 
 export default Skills
