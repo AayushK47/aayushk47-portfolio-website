@@ -13,22 +13,24 @@ const About = () => {
           <div className={styles.aboutText}>
             <div className={styles.aboutStory}>
               <p>
-                Hello, My name is Aayush Kurup. I am a Software Engineer from Bhopal, Madhya Pradesh, India.
-                Currently, I am employed by{" "}
+                Hello, My name is Aayush Kurup. I am a Full-stack Software Engineer from Bhopal, Madhya Pradesh, India,
+                currently based in Pune, Maharashtra. I am employed by{" "}
                 <a
                   href="https://www.saama.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.textHighlight}
                 >
-                  Saama
+                  Saama Technologies
                 </a>{" "}
-                as Software Engineer.
+                as a Software Engineer.
               </p>
               <p>
-                I love working on a variety of technologies including Web Development, Mobile App Development
-                and Deep Learning. My goal is to build highly performant applications that solve real-world
-                problems and provide users with an awesome experience.
+                I specialize in API development, database design, cloud infrastructure, and frontend integrations. 
+                With strong expertise in Node.js with TypeScript, Nest.js, Express.js, React.js, and AWS cloud services, 
+                I have experience building highly scalable applications handling thousands of daily active users, 
+                optimizing performance, and ensuring reliability. I am passionate about delivering low-latency, 
+                high-performance services for data-driven and real-time applications.
               </p>
             </div>
             

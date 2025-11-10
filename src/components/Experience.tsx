@@ -10,14 +10,16 @@ const Experience = () => {
       duration: "Oct 2023 – Present",
       description: "Saama Technologies is a software company that uses AI-powered data analytics to help pharmaceutical and life sciences companies develop drugs and treatments faster.",
       achievements: [
-        "Designed and implemented CI/CD pipelines using GitHub Actions to fully automate builds, tests, and deployments for Node.js and React applications, eliminating manual deployment steps and improving release consistency.",
-        "Integrated secure refresh token flow using PingFederate and Node.js to enhance authentication stability and maintain seamless user sessions.",
-        "Automated weekly application usage reports using CloudWatch Insights, Athena, Glue, and QuickSight, enabling the product team to prioritize features based on real user behavior and engagement insights.",
-        "Established and maintained data processing pipelines using Airflow, S3, Lambda, Athena and Glue ensuring timely data availability for critical tasks.",
-        "Delivered critical bug fixes and feature enhancements in close collaboration with the product team, contributing to improved application stability and user satisfaction.",
-        "Established proactive monitoring by provisioning AWS CloudWatch alarms through AWS CloudFormation, enabling early detection of infrastructure issues and improving system reliability."
+        "Built and Optimized Restful APIs using Express and PostgreSQL, including a paginated API for large Datasets (> 10,000 records) and a dedicated API to export section-level customer data, improving data accessibility and reducing client-side load by ~90%.",
+        "Developed reusable dynamic UI components in React, including custom date pickers and data visualizations, and implemented a 'single-click filter save' feature to enhance user productivity across multi section dashboard.",
+        "Implemented secure authentication workflows using Node.js middleware and PingFederate, enabling robust refresh token handling and ensuring seamless user session continuity.",
+        "Automated frontend and backend deployments via GitHub Actions, enabling developer-led rollouts and reducing deployment turnaround time.",
+        "Used GitHub Copilot to accelerate development workflows, reduce repetitive coding tasks, and maintain focus on business logic.",
+        "Designed usage analytics pipelines with Apache Airflow, AWS CloudWatch Insights, Athena Glue and Quicksight, giving the product team actionable user insights to prioritize feature delivery.",
+        "Set up proactive monitoring infrastructure through AWS CloudFormation and CloudWatch alarms to detect critical issues early and boost application reliability.",
+        "Mentored junior developers in backend development with Node.js, React and Python and AWS services, guiding them through API design, cloud workflows, and best practices for scalable application development."
       ],
-      technologies: ["Python", "Node.js", "React", "Apache Airflow", "AWS Lambda", "AWS Athena", "AWS Glue", "AWS Quicksight", "GitHub Actions", "PingFederate"]
+      technologies: ["Node.js", "React", "MySQL", "PostgreSQL", "Athena", "Python", "Apache Airflow", "AWS Lambda", "AWS Athena", "AWS Glue", "AWS Quicksight", "GitHub Actions", "PingFederate", "GitHub Copilot"]
     },
     {
       id: 2,
@@ -43,12 +45,13 @@ const Experience = () => {
       description: "Squareboat, leveraging its tech expertise, aids startups and MNCs in crafting beautiful, scalable digital products, driving positive change one product at a time.",
       achievements: [
         "Analyzed client product requirements, designed scalable databases, and developed backend services, integrating third-party packages for enhanced functionality in over 5 projects.",
-        "Influenced diverse projects including Finemake (B2B e-commerce), Hudle (sports venue booking), TV App (Flutter), Healify (exercise admin panel), and Hero Vired (ed-tech platform).",
-        "Engineered B2B e-commerce app facilitating highly customizable interior design hardware purchases.",
-        "Developed sports venue booking app serving 1000-5000 daily active users with forthcoming leaderboard feature.",
-        "Created Flutter app for Android TVs enabling remote image slideshow management for 100+ company personnel.",
-        "Crafted exercise admin panel resulting in 25% improvement in patient adherence to treatment plans.",
-        "Optimized backend with Go-based middle tier achieving 98% improvement in response time."
+        "Influenced diverse projects including Finemake, Hudle, TV App, Healify, and Hero Vired across various technology stacks.",
+        "Finemake: Engineered a B2B e-commerce app, facilitating the purchase of highly customizable interior design hardware using Node.js, Nest.js, React, AWS Lambda, SQS, and Postgres.",
+        "Hudle: Played a pivotal role in developing a sports venue booking app, currently serving 1000-5000 daily active users, with a forthcoming leaderboard feature using Node.js, Nest.js, AWS Lambda, SQS, and MySQL.",
+        "TV App: Created a Flutter app for Android TVs, facilitating remote image slideshow management and broadcasting crucial information to 100+ company personnel using Node.js, Nest.js, React.js, TypeScript, Flutter, AWS Lambda, and Postgres.",
+        "Healify: Crafted an exercise admin panel, enabling physiotherapists to add exercises and configure joint angles for virtual sessions resulting in a 25% improvement in patient adherence to treatment plans using Python, FastAPI, Next.js, TypeScript, AWS Lambda, AWS SQS, and Postgres.",
+        "Hero Vired: Optimized backend with a Go-based middle tier which led to a 98% improvement in response time and programmed an internal service desk tool for an ed-tech platform using Node.js, Express.js, Golang, React, TypeScript, Postgres, and Redis.",
+        "Mentored 3 interns (recent graduates) in Node.js, Nest.js and TypeScript, providing hands-on guidance from setup to production-grade feature development and helping them transition from academic to industry workflows."
       ],
       technologies: ["Node.js", "Nest.js", "React", "TypeScript", "Flutter", "Python", "FastAPI", "Next.js", "Golang", "Express.js", "AWS Lambda", "AWS SQS", "PostgreSQL", "MySQL", "Redis"]
     },
@@ -60,10 +63,13 @@ const Experience = () => {
       duration: "Jan 2021 – Mar 2022",
       description: "Tata Consultancy Services, headquartered in Mumbai, is a global IT services and consulting firm that leverages technology and business collaboration to foster change.",
       achievements: [
-        "Achieved 90% SLA compliance by promptly fulfilling client-raised service requests.",
-        "Monitored software for 200+ users, enhancing experience and productivity through root cause analyses, software enhancements, and patches."
+        "Developed record-level audit functionality in a legacy Java/Spring Boot application by implementing database triggers and procedures to automatically capture create, update and delete actions with user identity and timestamps.",
+        "Delivered front-end enhancements, including adding dynamic form fields and updating UI components enhancing user experience.",
+        "Patched the Log4j vulnerability (CVE-2021-44228), ensuring application safety and compliance across production environments.",
+        "Analyzed and documented a critical performance issue affecting 200+ concurrent users, and suggested architectural changes to improve scalability and user experience.",
+        "Supported 200+ users and maintained 100% SLA compliance for service requests."
       ],
-      technologies: ["Java", "Spring Boot"]
+      technologies: ["Java", "Spring Boot", "Oracle"]
     }
   ]
 
