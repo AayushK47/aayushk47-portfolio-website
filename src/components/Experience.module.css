@@ -135,17 +135,17 @@
   border: 1px solid rgba(245, 158, 11, 0.2);
 }
 
-/* Description container - hidden by default, shown on hover */
+/* Description container - hidden by default, shown on click */
 .descriptionContainer {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out, margin 0.3s ease-in-out;
+  transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out, margin 0.4s ease-in-out;
   opacity: 0;
   margin-bottom: 0;
 }
 
-.timelineContent:hover .descriptionContainer {
-  max-height: 100px;
+.descriptionContainer.show {
+  max-height: 150px;
   opacity: 1;
   margin-bottom: 1.5rem;
 }
@@ -200,30 +200,30 @@
   top: 0;
 }
 
-/* Remaining achievements - hidden by default, shown on hover */
+/* Remaining achievements - hidden by default, shown on click */
 .remainingAchievements {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out;
   opacity: 0;
 }
 
-.timelineContent:hover .remainingAchievements {
-  max-height: 500px;
+.remainingAchievements.show {
+  max-height: 800px;
   opacity: 1;
 }
 
-/* Technologies container - hidden by default, shown on hover */
+/* Technologies container - hidden by default, shown on click */
 .technologiesContainer {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out, margin 0.3s ease-in-out;
+  transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out, margin 0.4s ease-in-out;
   opacity: 0;
   margin-top: 0;
 }
 
-.timelineContent:hover .technologiesContainer {
-  max-height: 200px;
+.technologiesContainer.show {
+  max-height: 300px;
   opacity: 1;
   margin-top: 1.5rem;
 }
@@ -268,6 +268,41 @@
 .techTag:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
+}
+
+/* Expand Indicator */
+.expandIndicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--border-color);
+  color: var(--primary-color);
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.indicatorText {
+  user-select: none;
+}
+
+.indicatorArrow {
+  transition: transform 0.3s ease;
+}
+
+.indicatorArrow.rotated {
+  transform: rotate(180deg);
+}
+
+.expandIndicator:hover {
+  color: var(--accent-color);
+}
+
+.timelineContent.expanded .expandIndicator {
+  border-top-color: var(--primary-color);
 }
 
 @media (max-width: 1024px) {
@@ -318,14 +353,9 @@
     font-size: 1.25rem;
   }
   
-  /* Mobile hover effects - show content by default */
-  .descriptionContainer,
-  .remainingAchievements,
-  .technologiesContainer {
-    max-height: none;
-    opacity: 1;
-    margin-bottom: 1.5rem;
-    margin-top: 1.5rem;
+  /* Mobile - keep expand/collapse functionality */
+  .expandIndicator {
+    font-size: 0.8rem;
   }
 }
 

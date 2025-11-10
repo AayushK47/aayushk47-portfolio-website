@@ -1,6 +1,13 @@
+import { useState } from 'react'
 import styles from './Experience.module.css'
 
 const Experience = () => {
+  const [expandedId, setExpandedId] = useState<number | null>(null)
+
+  const toggleExpand = (id: number) => {
+    setExpandedId(expandedId === id ? null : id)
+  }
+
   const experiences = [
     {
       id: 1,
@@ -85,10 +92,14 @@ const Experience = () => {
           {experiences.map((exp, index) => {
             const initialAchievements = exp.achievements.slice(0, 2)
             const remainingAchievements = exp.achievements.slice(2)
+            const isExpanded = expandedId === exp.id
             
             return (
               <div key={exp.id} className={`${styles.timelineItem} ${index % 2 === 0 ? styles.left : styles.right}`}>
-                <div className={styles.timelineContent}>
+                <div 
+                  className={`${styles.timelineContent} ${isExpanded ? styles.expanded : ''}`}
+                  onClick={() => toggleExpand(exp.id)}
+                >
                   <div className={styles.timelineHeader}>
                     <h3 className={styles.position}>{exp.position}</h3>
                     <div className={styles.companyInfo}>
@@ -98,8 +109,8 @@ const Experience = () => {
                     <span className={styles.duration}>{exp.duration}</span>
                   </div>
                   
-                  {/* Description - hidden by default, shown on hover */}
-                  <div className={styles.descriptionContainer}>
+                  {/* Description - hidden by default, shown when expanded */}
+                  <div className={`${styles.descriptionContainer} ${isExpanded ? styles.show : ''}`}>
                     <p className={styles.description}>{exp.description}</p>
                   </div>
                   
@@ -116,7 +127,7 @@ const Experience = () => {
                     
                     {/* Show remaining achievements when expanded */}
                     {remainingAchievements.length > 0 && (
-                      <div className={styles.remainingAchievements}>
+                      <div className={`${styles.remainingAchievements} ${isExpanded ? styles.show : ''}`}>
                         <ul className={styles.achievementsList}>
                           {remainingAchievements.map((achievement, achievementIndex) => (
                             <li key={achievementIndex + 2} className={styles.achievementItem}>
@@ -128,8 +139,8 @@ const Experience = () => {
                     )}
                   </div>
                   
-                  {/* Technologies - hidden by default, shown on hover */}
-                  <div className={styles.technologiesContainer}>
+                  {/* Technologies - hidden by default, shown when expanded */}
+                  <div className={`${styles.technologiesContainer} ${isExpanded ? styles.show : ''}`}>
                     <div className={styles.technologies}>
                       <h5 className={styles.technologiesTitle}>Technologies Used:</h5>
                       <div className={styles.techTags}>
@@ -138,6 +149,26 @@ const Experience = () => {
                         ))}
                       </div>
                     </div>
+                  </div>
+
+                  {/* Click indicator at the bottom */}
+                  <div className={styles.expandIndicator}>
+                    <span className={styles.indicatorText}>
+                      {isExpanded ? 'Click to collapse' : 'Click to see more'}
+                    </span>
+                    <svg 
+                      className={`${styles.indicatorArrow} ${isExpanded ? styles.rotated : ''}`}
+                      width="16" 
+                      height="16" 
+                      viewBox="0 0 24 24" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      strokeWidth="2" 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round"
+                    >
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
                   </div>
                 </div>
               </div>
