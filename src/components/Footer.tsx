@@ -12,13 +12,10 @@ const Footer = () => {
             <div className={styles.footerLogo}>
               <img 
                 src={brandSvg} 
-                alt="Aayush Kurup - Frontend Developer" 
+                alt="Aayush Kurup" 
                 className={styles.logoImage}
               />
             </div>
-            <p className={styles.footerDescription}>
-              Frontend Developer & UI/UX Designer creating exceptional digital experiences.
-            </p>
           </div>
           
           <div className={styles.footerSection}>
